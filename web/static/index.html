@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Junior Assessment</title>
+  <script>
+    const saved = localStorage.getItem("theme");
+    document.documentElement.dataset.theme =
+      saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  </script>
+  <link rel="stylesheet" href="/static/vendor/github-dark.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" id="home" href="/">☕ Java Junior Assessment</a>
+    <button id="theme" class="icon-btn" title="Toggle light/dark theme" aria-label="Toggle theme">◐</button>
+  </header>
+  <main id="app"></main>
+  <script src="/static/vendor/highlight.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

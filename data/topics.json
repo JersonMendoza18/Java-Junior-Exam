@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "topics": [
+    {
+      "id": "creating_using_arrays",
+      "name": "Creating and Using Arrays"
+    },
+    {
+      "id": "handling_exceptions",
+      "name": "Handling Exceptions"
+    },
+    {
+      "id": "java_basics",
+      "name": "Java Basics"
+    },
+    {
+      "id": "other",
+      "name": "Other"
+    },
+    {
+      "id": "loop_constructs",
+      "name": "Using Loop Constructs"
+    },
+    {
+      "id": "operators_decision_constructs",
+      "name": "Using Operators and Decision Constructs"
+    },
+    {
+      "id": "inheritance",
+      "name": "Working with Inheritance"
+    },
+    {
+      "id": "java_data_types",
+      "name": "Working with Java Data Types"
+    },
+    {
+      "id": "methods_encapsulation",
+      "name": "Working with Methods and Encapsulation"
+    },
+    {
+      "id": "java_api",
+      "name": "Working with Selected Classes from the Java API"
+    }
+  ]
+}

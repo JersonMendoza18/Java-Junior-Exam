@@ -1,0 +1,1155 @@
+{
+  "version": "1.0",
+  "language": "en",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "java_basics",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "What is the result of the following class?\n(Choose all that apply)",
+      "code": "public class _C {\n  private static int $;\n  public static void main(String[] main) {\n    String a_b;\n    System.out.print($);\n    System.out.print(a_b);\n  }\n}",
+      "options": {
+        "A": "Compiler error on line 1.",
+        "B": "Compiler error on line 2.",
+        "C": "Compiler error on line 4.",
+        "D": "Compiler error on line 5.",
+        "E": "Compiler error on line 6.",
+        "F": "0null",
+        "G": "nullnull"
+      },
+      "correct_answers": [
+        "E"
+      ],
+      "explanation": "The static field $ is legal and is initialized to 0. The local variable a_b is declared but not initialized, so reading it causes a compiler error.",
+      "tags": [
+        "local-variable",
+        "initialization",
+        "fields"
+      ]
+    },
+    {
+      "id": 2,
+      "topic": "java_api",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is the result of the following code?",
+      "code": "String s1 = \"Java\";\nString s2 = \"Java\";\nStringBuilder sb1 = new StringBuilder();\nsb1.append(\"Ja\").append(\"va\");\nSystem.out.println(s1 == s2);\nSystem.out.println(s1.equals(s2));\nSystem.out.println(sb1.toString() == s1);\nSystem.out.println(sb1.toString().equals(s1));",
+      "options": {
+        "A": "true is printed out exactly once.",
+        "B": "true is printed out exactly twice.",
+        "C": "true is printed out exactly three times.",
+        "D": "true is printed out exactly four times.",
+        "E": "The code does not compile."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "String literals are interned, so s1 == s2 is true. equals() is also true. StringBuilder creates a different String object, so == is false, but equals() is true.",
+      "tags": [
+        "String",
+        "StringBuilder",
+        "equals",
+        "reference-comparison"
+      ]
+    },
+    {
+      "id": 3,
+      "topic": "inheritance",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is the result of the following code?",
+      "code": "interface HasTail { int getTailLength(); }\n\nabstract class Puma implements HasTail {\n  protected int getTailLength() { return 4; }\n}\n\npublic class Cougar extends Puma {\n  public static void main(String[] args) {\n    Puma puma = new Puma();\n    System.out.println(puma.getTailLength());\n  }\n\n  public int getTailLength(int length) { return 2; }\n}",
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "The code will not compile because of line 3.",
+        "D": "The code will not compile because of line 5.",
+        "E": "The code will not compile because of line 7.",
+        "F": "The code will not compile because of line 11.",
+        "G": "The output cannot be determined from the code provided."
+      },
+      "correct_answers": [
+        "E"
+      ],
+      "explanation": "Puma is abstract, so it cannot be instantiated. The expression new Puma() causes the compilation error.",
+      "tags": [
+        "abstract-class",
+        "instantiation",
+        "interface"
+      ]
+    },
+    {
+      "id": 4,
+      "topic": "loop_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is the output of the following program?",
+      "code": "public class FeedingSchedule {\n  public static void main(String[] args) {\n    boolean keepGoing = true;\n    int count = 0;\n    int x = 3;\n    while(count++ < 3) {\n      int y = (1 + 2 * count) % 3;\n      switch(y) {\n        default:\n        case 0: x -= 1; break;\n        case 1: x += 5;\n      }\n    }\n    System.out.println(x);\n  }\n}",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7",
+        "E": "13",
+        "F": "The code will not compile because of line 7."
+      },
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "The loop executes three times. The y values are 0, 2, and 1. x changes from 3 to 2, remains 2, then becomes 7.",
+      "tags": [
+        "while",
+        "switch",
+        "post-increment"
+      ]
+    },
+    {
+      "id": 5,
+      "topic": "handling_exceptions",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is the output of the following code snippet?",
+      "code": "System.out.print(\"a\");\ntry {\n  System.out.print(\"b\");\n  throw new IllegalArgumentException();\n} catch (RuntimeException e) {\n  System.out.print(\"c\");\n} finally {\n  System.out.print(\"d\");\n}\nSystem.out.print(\"e\");",
+      "options": {
+        "A": "abe",
+        "B": "abce",
+        "C": "abde",
+        "D": "abcde",
+        "E": "The code does not compile.",
+        "F": "An uncaught exception is thrown."
+      },
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "The exception is caught by RuntimeException. The finally block always executes, so the sequence is a, b, c, d, e.",
+      "tags": [
+        "try-catch-finally",
+        "runtime-exception"
+      ]
+    },
+    {
+      "id": 6,
+      "topic": "methods_encapsulation",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is the result of the following program?",
+      "code": "public class MathFunctions {\n  public static void addToInt(int x, int amountToAdd) {\n    x = x + amountToAdd;\n  }\n\n  public static void main(String[] args) {\n    int a = 15;\n    int b = 10;\n    MathFunctions.addToInt(a, b);\n    System.out.println(a);\n  }\n}",
+      "options": {
+        "A": "10",
+        "B": "15",
+        "C": "25",
+        "D": "Compiler error on line 3.",
+        "E": "Compiler error on line 8.",
+        "F": "None of the above."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Primitive arguments are passed by value. The method changes its local copy of x, so a remains 15.",
+      "tags": [
+        "pass-by-value",
+        "primitive",
+        "method-parameter"
+      ]
+    },
+    {
+      "id": 7,
+      "topic": "java_api",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is the result of the following code?",
+      "code": "int[] array = {6, 9, 8};\nList<Integer> list = new ArrayList<>();\nlist.add(array[0]);\nlist.add(array[2]);\nlist.set(1, array[1]);\nlist.remove(0);\nSystem.out.println(list);",
+      "options": {
+        "A": "[8]",
+        "B": "[9]",
+        "C": "Something like [Ljava.lang.String;@160bc7c0",
+        "D": "An exception is thrown.",
+        "E": "The code does not compile."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The list becomes [6, 8], then set changes it to [6, 9], and remove(0) leaves [9].",
+      "tags": [
+        "ArrayList",
+        "set",
+        "remove"
+      ]
+    },
+    {
+      "id": 8,
+      "topic": "inheritance",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is the output of the following code?",
+      "code": "public class Deer {\n  public Deer() { System.out.print(\"Deer\"); }\n  public Deer(int age) { System.out.print(\"DeerAge\"); }\n  private boolean hasHorns() { return false; }\n\n  public static void main(String[] args) {\n    Deer deer = new Reindeer(5);\n    System.out.println(\",\" + deer.hasHorns());\n  }\n}\n\nclass Reindeer extends Deer {\n  public Reindeer(int age) { System.out.print(\"Reindeer\"); }\n  public boolean hasHorns() { return true; }\n}",
+      "options": {
+        "A": "DeerReindeer,false",
+        "B": "DeerReindeer,true",
+        "C": "ReindeerDeer,false",
+        "D": "ReindeerDeer,true",
+        "E": "DeerAgeReindeer,false",
+        "F": "DeerAgeReindeer,true",
+        "G": "The code will not compile because of line 7.",
+        "H": "The code will not compile because of line 12."
+      },
+      "correct_answers": [
+        "G"
+      ],
+      "explanation": "Deer's private hasHorns() is not inherited and cannot be called through the Deer reference in main. Therefore line 7 does not compile.",
+      "tags": [
+        "private-method",
+        "inheritance",
+        "polymorphism"
+      ]
+    },
+    {
+      "id": 9,
+      "topic": "handling_exceptions",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "Which of the following statements are true? (Choose all that apply)",
+      "options": {
+        "A": "Checked exceptions are intended to be thrown by the JVM (and not the programmer).",
+        "B": "Checked exceptions are required to be caught or declared.",
+        "C": "Errors are intended to be thrown by the JVM (and not the programmer).",
+        "D": "Errors are required to be caught or declared.",
+        "E": "Runtime exceptions are intended to be thrown by the JVM (and not the programmer).",
+        "F": "Runtime exceptions are required to be caught or declared."
+      },
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "Checked exceptions must be caught or declared. Errors are generally serious JVM/system conditions and are unchecked. RuntimeException subclasses are also unchecked.",
+      "code": null,
+      "tags": [
+        "checked-exception",
+        "Error",
+        "RuntimeException"
+      ]
+    },
+    {
+      "id": 10,
+      "topic": "other",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "Which are true of the following code? (Choose all that apply)",
+      "code": "import java.util.*;\n\npublic class Grasshopper {\n  public Grasshopper(String n) {\n    name = n;\n  }\n\n  public static void main(String[] args) {\n    Grasshopper one = new Grasshopper(\"g1\");\n    Grasshopper two = new Grasshopper(\"g2\");\n    one = two;\n    two = null;\n    one = null;\n  }\n\n  private String name;\n}",
+      "options": {
+        "A": "Immediately after one = two, no grasshopper objects are eligible for garbage collection.",
+        "B": "Immediately after two = null, no grasshopper objects are eligible for garbage collection.",
+        "C": "Immediately after one = two, only one grasshopper object is eligible for garbage collection.",
+        "D": "Immediately after two = null, only one grasshopper object is eligible for garbage collection.",
+        "E": "Immediately after one = null, only one grasshopper object is eligible for garbage collection.",
+        "F": "The code compiles.",
+        "G": "The code does not compile."
+      },
+      "correct_answers": [
+        "C",
+        "D",
+        "F"
+      ],
+      "explanation": "After one = two, the first object has no references. After two = null, the second object is still referenced by one. After one = null, both are eligible for garbage collection.",
+      "tags": [
+        "garbage-collection",
+        "references"
+      ]
+    },
+    {
+      "id": 11,
+      "topic": "loop_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is the output of the following program?",
+      "code": "public class FeedingSchedule {\n  public static void main(String[] args) {\n    int x = 5, j = 0;\n    OUTER: for(int i=0; i<3; )\n      INNER: do {\n        i++; x++;\n        if(x > 10) break INNER;\n        x += 4;\n        j++;\n      } while(j <= 2);\n    System.out.println(x);\n  }\n}",
+      "options": {
+        "A": "10",
+        "B": "12",
+        "C": "13",
+        "D": "17",
+        "E": "The code will not compile because of line 4.",
+        "F": "The code will not compile because of line 6."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "First pass: i=1 and x=10. The do-while repeats because j=1, then i=2 and x=11, so it breaks. The outer loop repeats: i=3 and x=12, then breaks. The final value is 12.",
+      "tags": [
+        "nested-loops",
+        "do-while",
+        "break"
+      ]
+    },
+    {
+      "id": 12,
+      "topic": "methods_encapsulation",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is the result of the following program?",
+      "code": "public class Egret {\n  private String color;\n\n  public Egret() {\n    this(\"white\");\n  }\n\n  public Egret(String color) {\n    color = color;\n  }\n\n  public static void main(String[] args) {\n    Egret e = new Egret();\n    System.out.println(\"Color:\" + e.color);\n  }\n}",
+      "options": {
+        "A": "Color:",
+        "B": "Color:null",
+        "C": "Color:White",
+        "D": "Compiler error on line 4.",
+        "E": "Compiler error on line 10.",
+        "F": "Compiler error on line 11."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The constructor parameter shadows the field. color = color assigns the parameter to itself, leaving the field null.",
+      "tags": [
+        "constructor",
+        "this",
+        "field-shadowing"
+      ]
+    },
+    {
+      "id": 13,
+      "topic": "operators_decision_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is the output of the following program?",
+      "code": "public class BearOrShark {\n  public static void main(String[] args) {\n    int luck = 10;\n    if((luck > 10 ? luck++ : --luck) < 10) {\n      System.out.print(\"Bear\");\n    }\n    if(luck < 10) System.out.print(\"Shark\");\n  }\n}",
+      "options": {
+        "A": "Bear",
+        "B": "Shark",
+        "C": "BearShark",
+        "D": "The code will not compile because of line 4.",
+        "E": "The code will not compile because of line 6.",
+        "F": "The code compiles without issue but does not produce any output."
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "luck is 10, so the false branch of the ternary runs: --luck makes it 9. Both conditions then evaluate to true, printing BearShark.",
+      "tags": [
+        "ternary",
+        "pre-decrement",
+        "short-circuit"
+      ]
+    },
+    {
+      "id": 14,
+      "topic": "loop_constructs",
+      "difficulty": "hard",
+      "type": "multiple",
+      "question": "Assuming we have a valid, non-null HenHouse object whose value is initialized by the blank line, which outputs are possible? (Choose all that apply)",
+      "code": "class Chicken {}\ninterface HenHouse {\n  java.util.List<Chicken> getChickens();\n}\npublic class ChickenSong {\n  public static void main(String[] args) {\n    HenHouse house = ____________;\n    Chicken chicken = house.getChickens().get(0);\n    for(int i=0; i<house.getChickens().size();\n        chicken = house.getChickens().get(i++)) {\n      System.out.println(\"Cluck\");\n    }\n  }\n}",
+      "options": {
+        "A": "The code will not compile because of line 6.",
+        "B": "The code will not compile because of lines 7-8.",
+        "C": "The application will compile but not produce any output.",
+        "D": "The application will output Cluck exactly once.",
+        "E": "The application will output Cluck more than once.",
+        "F": "The application will compile but produce an exception at runtime."
+      },
+      "correct_answers": [
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "explanation": "The code can compile with a valid HenHouse. An empty list causes get(0) to throw. Lists with one or more elements can produce one or multiple Cluck outputs depending on size.",
+      "tags": [
+        "enhanced-for",
+        "List",
+        "runtime-exception"
+      ]
+    },
+    {
+      "id": 15,
+      "topic": "java_data_types",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "Which of the following statements can be inserted so that the code compiles successfully? (Choose all that apply)",
+      "code": "interface CanSwim {}\nclass Amphibian implements CanSwim {}\nclass Tadpole extends Amphibian {}\n\npublic class FindAllTadPole {\n  public static void main(String[] args) {\n    java.util.List<Tadpole> tadpoles = new java.util.ArrayList<Tadpole>();\n    for(Amphibian amphibian : tadpoles) {\n      ____________ tadpole = amphibian;\n    }\n  }\n}",
+      "options": {
+        "A": "CanSwim",
+        "B": "Long",
+        "C": "Amphibian",
+        "D": "Tadpole",
+        "E": "Object"
+      },
+      "correct_answers": [
+        "A",
+        "C",
+        "E"
+      ],
+      "explanation": "A Tadpole can be assigned to its supertypes CanSwim, Amphibian, and Object. It cannot be assigned to Long. Tadpole itself cannot be assigned from an Amphibian variable without a cast.",
+      "tags": [
+        "polymorphism",
+        "upcasting",
+        "interfaces"
+      ]
+    },
+    {
+      "id": 16,
+      "topic": "inheritance",
+      "difficulty": "hard",
+      "type": "multiple",
+      "question": "Which individual changes, if any, would allow the following code to compile? (Choose all that apply)",
+      "code": "interface Animal {\n  default String getName() { return null; }\n}\ninterface Mammal {\n  default String getName() { return null; }\n}\nabstract class Otter implements Mammal, Animal {}",
+      "options": {
+        "A": "The code compiles without issue.",
+        "B": "Remove the default modifier and method implementation from Animal.",
+        "C": "Remove the default modifier and method implementation from Mammal.",
+        "D": "Remove the default modifier and method implementation from both interfaces.",
+        "E": "Change the return value on Animal from null to \"Animal\".",
+        "F": "Override getName() with an abstract method in Otter.",
+        "G": "Override getName() with a concrete method in Otter."
+      },
+      "correct_answers": [
+        "B",
+        "C",
+        "D",
+        "F",
+        "G"
+      ],
+      "explanation": "The two interfaces provide conflicting default methods. Otter must resolve the conflict by removing one or both defaults, or by explicitly declaring getName in Otter.",
+      "tags": [
+        "default-method",
+        "interfaces",
+        "method-conflict"
+      ]
+    },
+    {
+      "id": 17,
+      "topic": "java_api",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "Which lines can be inserted to print true? (Choose all that apply)",
+      "code": "public static void main(String[] args) {\n  // INSERT CODE HERE\n}\n\nprivate static boolean test(java.util.function.Predicate<Integer> p) {\n  return p.test(5);\n}",
+      "options": {
+        "A": "System.out.println(test(i -> i == 5));",
+        "B": "System.out.println(test(i -> {i == 5;}));",
+        "C": "System.out.println(test((i) -> i == 5));",
+        "D": "System.out.println(test((int i) -> i == 5));",
+        "E": "System.out.println(test((int i) -> {return i == 5;}));",
+        "F": "System.out.println(test((i) -> {return i == 5;}));"
+      },
+      "correct_answers": [
+        "A",
+        "C",
+        "F"
+      ],
+      "explanation": "Predicate<Integer> expects an Integer parameter and returns boolean. Implicitly typed parameters work, and block lambdas need an explicit return.",
+      "tags": [
+        "lambda",
+        "Predicate",
+        "functional-interface"
+      ]
+    },
+    {
+      "id": 18,
+      "topic": "java_api",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "Which of the following print a date representing April 1, 2015? (Choose all that apply)",
+      "options": {
+        "A": "System.out.println(java.time.LocalDate.of(2015, java.util.Calendar.APRIL, 1));",
+        "B": "System.out.println(java.time.LocalDate.of(2015, java.time.Month.APRIL, 1));",
+        "C": "System.out.println(java.time.LocalDate.of(2015, 3, 1));",
+        "D": "System.out.println(java.time.LocalDate.of(2015, 4, 1));",
+        "E": "System.out.println(new java.time.LocalDate(2015, 3, 1));",
+        "F": "System.out.println(new java.time.LocalDate(2015, 4, 1));"
+      },
+      "correct_answers": [
+        "B",
+        "D"
+      ],
+      "explanation": "LocalDate uses 1-based numeric months. Month.APRIL and numeric month 4 both represent April. Calendar.APRIL is 3, and LocalDate has no public constructor like the ones shown.",
+      "code": null,
+      "tags": [
+        "LocalDate",
+        "Month",
+        "Calendar"
+      ]
+    },
+    {
+      "id": 19,
+      "topic": "java_basics",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Bytecode is in a file with which extension?",
+      "options": {
+        "A": ".bytecode",
+        "B": ".bytes",
+        "C": ".class",
+        "D": ".exe",
+        "E": ".javac",
+        "F": ".java"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "The Java compiler converts .java source code into JVM bytecode stored in .class files.",
+      "code": null,
+      "tags": [
+        "bytecode",
+        "class-file",
+        "javac"
+      ]
+    },
+    {
+      "id": 20,
+      "topic": "handling_exceptions",
+      "difficulty": "easy",
+      "type": "multiple",
+      "question": "Which of the following are checked exceptions? (Choose all that apply)",
+      "options": {
+        "A": "Exception",
+        "B": "IllegalArgumentException",
+        "C": "IOException",
+        "D": "NullPointerException",
+        "E": "NumberFormatException",
+        "F": "StackOverflowError"
+      },
+      "correct_answers": [
+        "A",
+        "C"
+      ],
+      "explanation": "Exception is checked unless it is a RuntimeException subclass. IOException is checked. The other listed classes are unchecked RuntimeException subclasses or Error.",
+      "code": null,
+      "tags": [
+        "checked-exception",
+        "IOException",
+        "RuntimeException"
+      ]
+    },
+    {
+      "id": 21,
+      "topic": "creating_using_arrays",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which declaration creates an array capable of storing five int values?",
+      "options": {
+        "A": "int[5] numbers;",
+        "B": "int numbers = new int[5];",
+        "C": "int[] numbers = new int[5];",
+        "D": "array<int> numbers = new array[5];"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "The Java syntax for an int array is int[] followed by the variable name. new int[5] creates an array with five elements.",
+      "code": null,
+      "tags": [
+        "creating_using_arrays"
+      ]
+    },
+    {
+      "id": 22,
+      "topic": "creating_using_arrays",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "int[] values = {10, 20, 30, 40};\nSystem.out.println(values[values.length - 2]);",
+      "options": {
+        "A": "20",
+        "B": "30",
+        "C": "40",
+        "D": "ArrayIndexOutOfBoundsException"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The array length is 4. The expression values.length - 2 is 2, and index 2 contains 30.",
+      "tags": [
+        "creating_using_arrays"
+      ]
+    },
+    {
+      "id": 23,
+      "topic": "creating_using_arrays",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is the result?",
+      "code": "int[][] matrix = new int[2][];\nmatrix[0] = new int[] {1, 2};\nmatrix[1] = new int[] {3, 4, 5};\nSystem.out.println(matrix[1][matrix[1].length - 1]);",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "Java supports jagged arrays. The second row has length 3, so its last valid index is 2, containing 5.",
+      "tags": [
+        "creating_using_arrays"
+      ]
+    },
+    {
+      "id": 24,
+      "topic": "handling_exceptions",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which keyword is used to explicitly throw an exception?",
+      "options": {
+        "A": "throws",
+        "B": "throw",
+        "C": "catch",
+        "D": "finally"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "throw is used to explicitly throw a particular exception object. throws is used in a method declaration.",
+      "code": null,
+      "tags": [
+        "handling_exceptions"
+      ]
+    },
+    {
+      "id": 25,
+      "topic": "handling_exceptions",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "try {\n    System.out.print(\"A\");\n} catch (RuntimeException e) {\n    System.out.print(\"B\");\n} finally {\n    System.out.print(\"C\");\n}",
+      "options": {
+        "A": "A",
+        "B": "B",
+        "C": "AC",
+        "D": "ABC"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "The try block completes normally, so the catch block is skipped. The finally block still executes, producing AC.",
+      "tags": [
+        "handling_exceptions"
+      ]
+    },
+    {
+      "id": 26,
+      "topic": "handling_exceptions",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What happens when this method is compiled?",
+      "code": "public static void read() {\n    throw new java.io.IOException();\n}",
+      "options": {
+        "A": "It compiles normally.",
+        "B": "It requires a catch or throws declaration.",
+        "C": "IOException is converted automatically to RuntimeException.",
+        "D": "Only finally is required."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "IOException is a checked exception. A method that throws it must catch it or declare it with throws IOException.",
+      "tags": [
+        "handling_exceptions"
+      ]
+    },
+    {
+      "id": 27,
+      "topic": "java_basics",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which method is the conventional entry point of a Java application?",
+      "options": {
+        "A": "start()",
+        "B": "run()",
+        "C": "public static void main(String[] args)",
+        "D": "public void main()"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "A standard Java application starts through public static void main(String[] args), or an equivalent varargs form.",
+      "code": null,
+      "tags": [
+        "java_basics"
+      ]
+    },
+    {
+      "id": 28,
+      "topic": "java_basics",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "Which statement about a Java source file is correct?",
+      "options": {
+        "A": "Every class must be public.",
+        "B": "A public top-level class name must match the file name.",
+        "C": "The file must always contain exactly one class.",
+        "D": "The package declaration must appear after imports."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "If a top-level class is public, its name must match the source file name. A source file may contain multiple top-level classes, but only one public top-level class.",
+      "code": null,
+      "tags": [
+        "java_basics"
+      ]
+    },
+    {
+      "id": 29,
+      "topic": "java_basics",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "Which statement correctly describes the compilation and execution flow?",
+      "options": {
+        "A": "javac creates machine code directly executed by the CPU.",
+        "B": "java converts .class files into .java source.",
+        "C": "javac compiles source into bytecode, and the JVM executes the bytecode.",
+        "D": "The JVM compiles .java files only after the program finishes."
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "javac compiles Java source into JVM bytecode. The JVM loads, verifies, and executes that bytecode, using interpretation and/or JIT compilation.",
+      "code": null,
+      "tags": [
+        "java_basics"
+      ]
+    },
+    {
+      "id": 30,
+      "topic": "other",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which value represents the absence of an object reference?",
+      "options": {
+        "A": "0",
+        "B": "false",
+        "C": "null",
+        "D": "void"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "null means a reference variable does not currently refer to an object.",
+      "code": null,
+      "tags": [
+        "other"
+      ]
+    },
+    {
+      "id": 31,
+      "topic": "other",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "String a = \"Java\";\nString b = new String(\"Java\");\nSystem.out.println(a == b);\nSystem.out.println(a.equals(b));",
+      "options": {
+        "A": "true then true",
+        "B": "true then false",
+        "C": "false then true",
+        "D": "false then false"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "new String creates a distinct object, so == is false. String.equals compares contents, so it is true.",
+      "tags": [
+        "other"
+      ]
+    },
+    {
+      "id": 32,
+      "topic": "other",
+      "difficulty": "hard",
+      "type": "multiple",
+      "question": "Which statements about garbage collection are true? (Choose all that apply)",
+      "options": {
+        "A": "An object is eligible for collection when it is no longer reachable.",
+        "B": "Calling System.gc() guarantees immediate collection.",
+        "C": "The JVM determines when eligible objects are actually collected.",
+        "D": "A local reference always keeps an object alive until the method returns."
+      },
+      "correct_answers": [
+        "A",
+        "C"
+      ],
+      "explanation": "Reachability is the key concept. System.gc() is only a request, not a guarantee. The JVM may determine that a reference is no longer needed before method completion.",
+      "code": null,
+      "tags": [
+        "other"
+      ]
+    },
+    {
+      "id": 33,
+      "topic": "loop_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "How many times is the loop body executed?",
+      "code": "for (int i = 0; i < 3; i++) {\n    System.out.println(i);\n}",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "0"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The values of i entering the loop body are 0, 1, and 2, so the body executes three times.",
+      "tags": [
+        "loop_constructs"
+      ]
+    },
+    {
+      "id": 34,
+      "topic": "loop_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "int sum = 0;\nfor (int i = 1; i <= 5; i++) {\n    if (i == 3) continue;\n    sum += i;\n}\nSystem.out.println(sum);",
+      "options": {
+        "A": "12",
+        "B": "15",
+        "C": "9",
+        "D": "8"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "The continue skips 3. The sum is 1 + 2 + 4 + 5 = 12.",
+      "tags": [
+        "loop_constructs"
+      ]
+    },
+    {
+      "id": 35,
+      "topic": "loop_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "int x = 0;\nouter:\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i == 1 && j == 1)\n            break outer;\n        x++;\n    }\n}\nSystem.out.println(x);",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "9"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The first row increments x three times. At i=1, j=1, break outer terminates both loops. The result is 3.",
+      "tags": [
+        "loop_constructs"
+      ]
+    },
+    {
+      "id": 36,
+      "topic": "operators_decision_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is the value of x?",
+      "code": "int x = 10;\nx += 5;",
+      "options": {
+        "A": "5",
+        "B": "10",
+        "C": "15",
+        "D": "50"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "The compound assignment x += 5 is equivalent to x = x + 5, producing 15.",
+      "tags": [
+        "operators_decision_constructs"
+      ]
+    },
+    {
+      "id": 37,
+      "topic": "operators_decision_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "int x = 5;\nSystem.out.println(x > 3 && x < 10 ? \"A\" : \"B\");",
+      "options": {
+        "A": "A",
+        "B": "B",
+        "C": "true",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Both comparisons are true, so the conditional operator selects \"A\".",
+      "tags": [
+        "operators_decision_constructs"
+      ]
+    },
+    {
+      "id": 38,
+      "topic": "operators_decision_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "int x = 0;\nif (x++ == 0 || ++x == 2) {\n    System.out.println(x);\n}",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "x++ == 0 is true, so || short-circuits and ++x is not evaluated. The post-increment leaves x equal to 1.",
+      "tags": [
+        "operators_decision_constructs"
+      ]
+    },
+    {
+      "id": 39,
+      "topic": "inheritance",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which keyword is used to inherit from a class?",
+      "options": {
+        "A": "implements",
+        "B": "inherits",
+        "C": "extends",
+        "D": "super"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "A class extends another class. The implements keyword is used when a class implements an interface.",
+      "code": null,
+      "tags": [
+        "inheritance"
+      ]
+    },
+    {
+      "id": 40,
+      "topic": "inheritance",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "class Animal {\n    void sound() { System.out.print(\"A\"); }\n}\nclass Dog extends Animal {\n    @Override\n    void sound() { System.out.print(\"D\"); }\n}\n\nAnimal a = new Dog();\na.sound();",
+      "options": {
+        "A": "A",
+        "B": "D",
+        "C": "AD",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Method overriding uses dynamic dispatch. The actual object is a Dog, so Dog.sound() executes.",
+      "tags": [
+        "inheritance"
+      ]
+    },
+    {
+      "id": 41,
+      "topic": "inheritance",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "Which statement about method overloading is correct?",
+      "options": {
+        "A": "Overloaded methods must have different return types only.",
+        "B": "Overloaded methods must have different parameter lists.",
+        "C": "Overloading only works between parent and child classes.",
+        "D": "An overridden method can change only its parameter list."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Overloading means multiple methods with the same name but different parameter lists. Return type alone cannot distinguish overloaded methods.",
+      "code": null,
+      "tags": [
+        "inheritance"
+      ]
+    },
+    {
+      "id": 42,
+      "topic": "java_data_types",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which of the following is a primitive type?",
+      "options": {
+        "A": "String",
+        "B": "Integer",
+        "C": "int",
+        "D": "ArrayList"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "int is a Java primitive type. String, Integer, and ArrayList are reference types.",
+      "code": null,
+      "tags": [
+        "java_data_types"
+      ]
+    },
+    {
+      "id": 43,
+      "topic": "java_data_types",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "Integer a = 10;\nint b = a;\nSystem.out.println(b);",
+      "options": {
+        "A": "null",
+        "B": "10",
+        "C": "Integer",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Java performs automatic unboxing from Integer to int when assigning a to b.",
+      "tags": [
+        "java_data_types"
+      ]
+    },
+    {
+      "id": 44,
+      "topic": "java_data_types",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "byte b = 10;\nb = (byte) (b + 20);\nSystem.out.println(b);",
+      "options": {
+        "A": "10",
+        "B": "20",
+        "C": "30",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "Arithmetic on byte values is promoted to int. The explicit cast converts the result back to byte, producing 30.",
+      "tags": [
+        "java_data_types"
+      ]
+    },
+    {
+      "id": 45,
+      "topic": "methods_encapsulation",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which access modifier makes a member accessible only inside its declaring class?",
+      "options": {
+        "A": "public",
+        "B": "protected",
+        "C": "private",
+        "D": "static"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "private restricts access to the declaring class.",
+      "code": null,
+      "tags": [
+        "methods_encapsulation"
+      ]
+    },
+    {
+      "id": 46,
+      "topic": "methods_encapsulation",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "class Counter {\n    private int value;\n\n    public void increment() {\n        value++;\n    }\n\n    public int getValue() {\n        return value;\n    }\n}\n\nCounter c = new Counter();\nc.increment();\nc.increment();\nSystem.out.println(c.getValue());",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "The private field is modified through the public method. increment() is called twice, so value becomes 2.",
+      "tags": [
+        "methods_encapsulation"
+      ]
+    },
+    {
+      "id": 47,
+      "topic": "methods_encapsulation",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "Which statement about constructors is correct?",
+      "options": {
+        "A": "A constructor can have a return type.",
+        "B": "A constructor is inherited by subclasses.",
+        "C": "If no constructor is declared, the compiler can provide a no-argument constructor.",
+        "D": "A constructor can be called like an ordinary method."
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "When a class declares no constructor, Java can provide a default no-argument constructor. Constructors have no return type and are not inherited.",
+      "code": null,
+      "tags": [
+        "methods_encapsulation"
+      ]
+    },
+    {
+      "id": 48,
+      "topic": "java_api",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which class is commonly used for a mutable sequence of characters?",
+      "options": {
+        "A": "StringBuilder",
+        "B": "Integer",
+        "C": "LocalDate",
+        "D": "Math"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "StringBuilder represents a mutable sequence of characters and is commonly used when repeated string modifications are needed.",
+      "code": null,
+      "tags": [
+        "java_api"
+      ]
+    },
+    {
+      "id": 49,
+      "topic": "java_api",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "java.util.List<String> names = new java.util.ArrayList<>();\nnames.add(\"Ana\");\nnames.add(\"Luis\");\nnames.remove(0);\nSystem.out.println(names.get(0));",
+      "options": {
+        "A": "Ana",
+        "B": "Luis",
+        "C": "null",
+        "D": "IndexOutOfBoundsException"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "After removing index 0, the list contains only Luis at index 0.",
+      "tags": [
+        "java_api"
+      ]
+    },
+    {
+      "id": 50,
+      "topic": "java_api",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "code": "java.time.LocalDate date = java.time.LocalDate.of(2025, 1, 31);\nSystem.out.println(date.plusMonths(1));",
+      "options": {
+        "A": "2025-02-28",
+        "B": "2025-03-01",
+        "C": "2025-02-31",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "LocalDate is immutable and adjusts an invalid day to the last valid day of the target month. January 31 plus one month becomes February 28 in 2025.",
+      "tags": [
+        "java_api"
+      ]
+    }
+  ]
+}

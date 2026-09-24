@@ -59,20 +59,20 @@
       "difficulty": "hard",
       "type": "single",
       "question": "What is the result of the following code?",
-      "code": "interface HasTail { int getTailLength(); }\n\nabstract class Puma implements HasTail {\n  protected int getTailLength() { return 4; }\n}\n\npublic class Cougar extends Puma {\n  public static void main(String[] args) {\n    Puma puma = new Puma();\n    System.out.println(puma.getTailLength());\n  }\n\n  public int getTailLength(int length) { return 2; }\n}",
+      "code": "interface HasTail { int getTailLength(); }\n\nabstract class Puma implements HasTail {\n  public int getTailLength() { return 4; }\n}\n\npublic class Cougar extends Puma {\n  public static void main(String[] args) {\n    Puma puma = new Puma();\n    System.out.println(puma.getTailLength());\n  }\n\n  public int getTailLength(int length) { return 2; }\n}",
       "options": {
         "A": "2",
         "B": "4",
         "C": "The code will not compile because of line 3.",
-        "D": "The code will not compile because of line 5.",
-        "E": "The code will not compile because of line 7.",
-        "F": "The code will not compile because of line 11.",
+        "D": "The code will not compile because of line 4.",
+        "E": "The code will not compile because of line 9.",
+        "F": "The code will not compile because of line 13.",
         "G": "The output cannot be determined from the code provided."
       },
       "correct_answers": [
         "E"
       ],
-      "explanation": "Puma is abstract, so it cannot be instantiated. The expression new Puma() causes the compilation error.",
+      "explanation": "Puma is abstract, so new Puma() on line 9 does not compile. Line 4 is fine: interface methods are implicitly public, so the implementing method must be public too.",
       "tags": [
         "abstract-class",
         "instantiation",
@@ -95,9 +95,9 @@
         "F": "The code will not compile because of line 7."
       },
       "correct_answers": [
-        "D"
+        "C"
       ],
-      "explanation": "The loop executes three times. The y values are 0, 2, and 1. x changes from 3 to 2, remains 2, then becomes 7.",
+      "explanation": "count++ < 3 compares the old value, so the body runs three times with count = 1, 2, 3 and y = 0, 2, 1. y=0 matches case 0: x becomes 2. y=2 matches no case, so default runs and falls through into case 0: x becomes 1. y=1 matches case 1: x becomes 6. The fourth check (3 < 3) is false, so the program prints 6.",
       "tags": [
         "while",
         "switch",
@@ -195,9 +195,9 @@
         "H": "The code will not compile because of line 12."
       },
       "correct_answers": [
-        "G"
+        "A"
       ],
-      "explanation": "Deer's private hasHorns() is not inherited and cannot be called through the Deer reference in main. Therefore line 7 does not compile.",
+      "explanation": "new Reindeer(5) implicitly calls the no-argument Deer() constructor first, printing Deer, then Reindeer prints Reindeer. main is inside Deer, so calling the private hasHorns() through a Deer reference is legal. Private methods are not overridden, so Reindeer's hasHorns() is a different method and is not called: the result is false. Output: DeerReindeer,false.",
       "tags": [
         "private-method",
         "inheritance",
@@ -829,9 +829,9 @@
         "D": "9"
       },
       "correct_answers": [
-        "B"
+        "C"
       ],
-      "explanation": "The first row increments x three times. At i=1, j=1, break outer terminates both loops. The result is 3.",
+      "explanation": "The first outer iteration (i=0) increments x three times. At i=1, j=0 x becomes 4. At i=1, j=1, break outer exits both loops before x++ runs, so the result is 4.",
       "tags": [
         "loop_constructs"
       ]

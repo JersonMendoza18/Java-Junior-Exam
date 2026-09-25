@@ -17,20 +17,6 @@ function h(tag, props, ...children) {
   return el;
 }
 
-async function api(path, { method = "GET", body } = {}) {
-  const res = await fetch("/api" + path, {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body: body === undefined ? undefined : JSON.stringify(body),
-  });
-  if (!res.ok) {
-    let msg = res.statusText;
-    try { msg = (await res.json()).detail || msg; } catch { /* keep statusText */ }
-    throw new Error(msg);
-  }
-  return res.json();
-}
-
 // `code` in backticks renders as inline code (works in questions, options, explanations).
 function richText(text) {
   return String(text).split(/`([^`]+)`/).map((part, i) =>

@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Java Junior Assessment</title>
   <script>
-    const saved = localStorage.getItem("theme");
+    let saved = null;
+    try { saved = localStorage.getItem("theme"); } catch { /* storage unavailable */ }
     document.documentElement.dataset.theme =
       saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   </script>

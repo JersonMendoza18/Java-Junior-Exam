@@ -63,8 +63,8 @@ class ApiTests(unittest.TestCase):
 
     def test_meta_pool_and_static(self):
         meta = self.client.get("/api/meta").json()
-        self.assertEqual(meta["total"], 50)
-        self.assertEqual(self.client.get("/api/pool?difficulty=easy").json()["count"], 15)
+        self.assertEqual(meta["total"], 200)
+        self.assertEqual(self.client.get("/api/pool?difficulty=easy").json()["count"], 70)
         self.assertEqual(self.client.get("/").status_code, 200)
         self.assertEqual(self.client.get("/static/vendor/highlight.min.js").status_code, 200)
 

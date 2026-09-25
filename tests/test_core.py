@@ -15,7 +15,7 @@ class CoreTests(unittest.TestCase):
         self.questions = load_questions(DATA / "questions.json", set(self.topics))
 
     def test_bank_loads(self):
-        self.assertEqual(len(self.questions), 50)
+        self.assertEqual(len(self.questions), 200)
 
     def test_balanced_selection_covers_topics(self):
         picked = select_questions(self.questions, 20, balanced=True)

@@ -1150,6 +1150,3309 @@
       "tags": [
         "java_api"
       ]
+    },
+    {
+      "id": 51,
+      "topic": "creating_using_arrays",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is the default value of each element in a newly created int[] array?",
+      "options": {
+        "A": "0",
+        "B": "null",
+        "C": "-1",
+        "D": "The array elements are uninitialized (garbage values)."
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Java always initializes array elements to a default value; for numeric primitives it is 0.",
+      "code": null,
+      "tags": [
+        "default-values",
+        "primitive-array"
+      ]
+    },
+    {
+      "id": 52,
+      "topic": "creating_using_arrays",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0",
+        "B": "null",
+        "C": "Compilation error",
+        "D": "ArrayIndexOutOfBoundsException"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "new int[3] fills the array with the default int value, 0, at every index.",
+      "code": "public class Q52 {\n    public static void main(String[] args) {\n        int[] numbers = new int[3];\n        System.out.println(numbers[1]);\n    }\n}",
+      "tags": [
+        "default-values",
+        "indexing"
+      ]
+    },
+    {
+      "id": 53,
+      "topic": "creating_using_arrays",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "Compilation error, length is a method: length()"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Arrays expose their size through the length field (not a method), which equals the number of elements.",
+      "code": "public class Q53 {\n    public static void main(String[] args) {\n        int[] values = {10, 20, 30};\n        System.out.println(values.length);\n    }\n}",
+      "tags": [
+        "length",
+        "field"
+      ]
+    },
+    {
+      "id": 54,
+      "topic": "creating_using_arrays",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which statement about Java arrays is correct?",
+      "options": {
+        "A": "An array's length can be changed after creation with resize().",
+        "B": "Once created, an array has a fixed length that cannot change.",
+        "C": "Arrays are primitive types, not objects.",
+        "D": "An array must always be initialized with literal values."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Java arrays have a fixed length set at creation time; to \"grow\" a collection you need a resizable type like ArrayList.",
+      "code": null,
+      "tags": [
+        "fixed-length",
+        "concept"
+      ]
+    },
+    {
+      "id": 55,
+      "topic": "creating_using_arrays",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "An empty string \"\"",
+        "B": "null",
+        "C": "Compilation error",
+        "D": "NullPointerException"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Arrays of a reference type (like String) default every element to null, not an empty string.",
+      "code": "public class Q55 {\n    public static void main(String[] args) {\n        String[] names = new String[2];\n        System.out.println(names[0]);\n    }\n}",
+      "tags": [
+        "default-values",
+        "reference-array"
+      ]
+    },
+    {
+      "id": 56,
+      "topic": "creating_using_arrays",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which declaration creates a 2-dimensional array of int with 3 rows and 4 columns?",
+      "options": {
+        "A": "int grid[3][4];",
+        "B": "int[][] grid = new int[3][4];",
+        "C": "int[] grid = new int[3, 4];",
+        "D": "int[][] grid = new int(3, 4);"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A 2D array in Java is declared with int[][] and created with new int[rows][columns].",
+      "code": null,
+      "tags": [
+        "multidimensional",
+        "syntax"
+      ]
+    },
+    {
+      "id": 57,
+      "topic": "creating_using_arrays",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "3",
+        "B": "5",
+        "C": "6",
+        "D": "ArrayIndexOutOfBoundsException"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "grid[1] is the second row {4, 5, 6}, and index [2] of that row is 6.",
+      "code": "public class Q57 {\n    public static void main(String[] args) {\n        int[][] grid = {\n            {1, 2, 3},\n            {4, 5, 6}\n        };\n        System.out.println(grid[1][2]);\n    }\n}",
+      "tags": [
+        "multidimensional",
+        "indexing"
+      ]
+    },
+    {
+      "id": 58,
+      "topic": "creating_using_arrays",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true then true",
+        "B": "true then false",
+        "C": "false then true",
+        "D": "false then false"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "== compares references, and a and b are two distinct array objects, so it is false. Arrays.equals compares the elements, which match, so it is true.",
+      "code": "import java.util.Arrays;\npublic class Q58 {\n    public static void main(String[] args) {\n        int[] a = {3, 1, 2};\n        int[] b = {3, 1, 2};\n        System.out.println(a == b);\n        System.out.println(Arrays.equals(a, b));\n    }\n}",
+      "tags": [
+        "Arrays.equals",
+        "reference-comparison"
+      ]
+    },
+    {
+      "id": 59,
+      "topic": "creating_using_arrays",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "3",
+        "B": "6",
+        "C": "9",
+        "D": "16"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "The loop assigns values[i] = i*i, so at index 3 the value is 3*3 = 9.",
+      "code": "public class Q59 {\n    public static void main(String[] args) {\n        int[] values = new int[5];\n        for (int i = 0; i < values.length; i++) {\n            values[i] = i * i;\n        }\n        System.out.println(values[3]);\n    }\n}",
+      "tags": [
+        "loop",
+        "computed-values"
+      ]
+    },
+    {
+      "id": 60,
+      "topic": "creating_using_arrays",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "[5, 3, 8, 1]",
+        "B": "[1, 3, 5, 8]",
+        "C": "[8, 5, 3, 1]",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Arrays.sort sorts in place in ascending order, and Arrays.toString formats the result as [1, 3, 5, 8].",
+      "code": "import java.util.Arrays;\npublic class Q60 {\n    public static void main(String[] args) {\n        int[] values = {5, 3, 8, 1};\n        Arrays.sort(values);\n        System.out.println(Arrays.toString(values));\n    }\n}",
+      "tags": [
+        "Arrays.sort",
+        "Arrays.toString"
+      ]
+    },
+    {
+      "id": 61,
+      "topic": "creating_using_arrays",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "A method has the signature void report(int... values). Which call is invalid?",
+      "options": {
+        "A": "report();",
+        "B": "report(1);",
+        "C": "report(1, 2, 3);",
+        "D": "report(new int[]{1, 2}, new int[]{3, 4});"
+      },
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "A varargs parameter behaves like a single array parameter; passing two separate arrays where one int[] is expected does not match the method signature.",
+      "code": null,
+      "tags": [
+        "varargs"
+      ]
+    },
+    {
+      "id": 62,
+      "topic": "creating_using_arrays",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "1",
+        "B": "99",
+        "C": "Compilation error",
+        "D": "0"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Arrays are objects, so b = a copies the reference, not the contents. a and b point to the same array, so modifying b[0] also changes a[0].",
+      "code": "public class Q62 {\n    public static void main(String[] args) {\n        int[] a = {1, 2, 3};\n        int[] b = a;\n        b[0] = 99;\n        System.out.println(a[0]);\n    }\n}",
+      "tags": [
+        "reference-semantics"
+      ]
+    },
+    {
+      "id": 63,
+      "topic": "creating_using_arrays",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "3",
+        "B": "6",
+        "C": "9",
+        "D": "Compilation error, jagged arrays are not allowed in Java"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Java supports jagged (ragged) arrays: each row can have a different length. The row lengths are 1, 2, and 3, which sum to 6.",
+      "code": "public class Q63 {\n    public static void main(String[] args) {\n        int[][] jagged = new int[3][];\n        jagged[0] = new int[]{1};\n        jagged[1] = new int[]{1, 2};\n        jagged[2] = new int[]{1, 2, 3};\n        int total = 0;\n        for (int[] row : jagged) {\n            total += row.length;\n        }\n        System.out.println(total);\n    }\n}",
+      "tags": [
+        "jagged-array"
+      ]
+    },
+    {
+      "id": 64,
+      "topic": "creating_using_arrays",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What happens when this code runs?",
+      "options": {
+        "A": "It prints nothing and exits normally.",
+        "B": "It throws an ArrayStoreException at runtime.",
+        "C": "It fails to compile because String[] cannot be assigned to Object[].",
+        "D": "It throws a ClassCastException at runtime."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Arrays are covariant, so String[] can be referenced as Object[] and this compiles. But the array's real, runtime type is still String[], so storing an Integer into it throws ArrayStoreException.",
+      "code": "public class Q64 {\n    public static void main(String[] args) {\n        Object[] objects = new String[3];\n        objects[0] = \"ok\";\n        objects[1] = Integer.valueOf(42);\n    }\n}",
+      "tags": [
+        "array-covariance",
+        "ArrayStoreException"
+      ]
+    },
+    {
+      "id": 65,
+      "topic": "creating_using_arrays",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "[1, 2, 5, 9]",
+        "B": "[9, 5, 2, 1]",
+        "C": "[5, 2, 9, 1]",
+        "D": "Compilation error, Arrays.sort has no overload that takes a Comparator"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Arrays.sort(T[], Comparator) accepts a Comparator only for reference types like Integer[]. b - a sorts in descending order: 9, 5, 2, 1.",
+      "code": "import java.util.Arrays;\npublic class Q65 {\n    public static void main(String[] args) {\n        Integer[] values = {5, 2, 9, 1};\n        Arrays.sort(values, (a, b) -> b - a);\n        System.out.println(Arrays.toString(values));\n    }\n}",
+      "tags": [
+        "Arrays.sort",
+        "Comparator",
+        "lambda"
+      ]
+    },
+    {
+      "id": 66,
+      "topic": "creating_using_arrays",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "5",
+        "D": "-1"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "binarySearch requires a sorted array and returns the index of the found element. 5 is at index 2 in {1, 3, 5, 7, 9}.",
+      "code": "import java.util.Arrays;\npublic class Q66 {\n    public static void main(String[] args) {\n        int[] values = {1, 3, 5, 7, 9};\n        int index = Arrays.binarySearch(values, 5);\n        System.out.println(index);\n    }\n}",
+      "tags": [
+        "binarySearch"
+      ]
+    },
+    {
+      "id": 67,
+      "topic": "creating_using_arrays",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "9",
+        "D": "12"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "matrix[r][c] = r + c fills the rows as {0,1,2} and {1,2,3}. Summing every element gives 0+1+2+1+2+3 = 9.",
+      "code": "public class Q67 {\n    public static void main(String[] args) {\n        int[][] matrix = new int[2][3];\n        for (int r = 0; r < matrix.length; r++) {\n            for (int c = 0; c < matrix[r].length; c++) {\n                matrix[r][c] = r + c;\n            }\n        }\n        int sum = 0;\n        for (int[] row : matrix) {\n            for (int v : row) {\n                sum += v;\n            }\n        }\n        System.out.println(sum);\n    }\n}",
+      "tags": [
+        "multidimensional",
+        "nested-loop"
+      ]
+    },
+    {
+      "id": 68,
+      "topic": "handling_exceptions",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which block always runs, whether or not an exception is thrown in the try block?",
+      "options": {
+        "A": "catch",
+        "B": "finally",
+        "C": "throws",
+        "D": "catchAll"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The finally block runs after try/catch regardless of whether an exception occurred (except in extreme cases like System.exit).",
+      "code": null,
+      "tags": [
+        "finally"
+      ]
+    },
+    {
+      "id": 69,
+      "topic": "handling_exceptions",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Caught",
+        "B": "5",
+        "C": "0",
+        "D": "The program crashes"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Accessing index 5 of a 2-element array throws ArrayIndexOutOfBoundsException, which is caught by the matching catch block.",
+      "code": "public class Q69 {\n    public static void main(String[] args) {\n        try {\n            int[] values = new int[2];\n            System.out.println(values[5]);\n        } catch (ArrayIndexOutOfBoundsException e) {\n            System.out.println(\"Caught\");\n        }\n    }\n}",
+      "tags": [
+        "ArrayIndexOutOfBoundsException",
+        "try-catch"
+      ]
+    },
+    {
+      "id": 70,
+      "topic": "handling_exceptions",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which of these is an unchecked exception?",
+      "options": {
+        "A": "IOException",
+        "B": "SQLException",
+        "C": "NullPointerException",
+        "D": "InterruptedException"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "NullPointerException extends RuntimeException, which makes it unchecked. The others are checked exceptions.",
+      "code": null,
+      "tags": [
+        "unchecked-exception",
+        "RuntimeException"
+      ]
+    },
+    {
+      "id": 71,
+      "topic": "handling_exceptions",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What happens when this code runs?",
+      "options": {
+        "A": "It prints 0.",
+        "B": "It prints null.",
+        "C": "It throws a NullPointerException.",
+        "D": "It fails to compile."
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "Calling a method on a null reference (text.length()) throws a NullPointerException at runtime.",
+      "code": "public class Q71 {\n    public static void main(String[] args) {\n        String text = null;\n        System.out.println(text.length());\n    }\n}",
+      "tags": [
+        "NullPointerException"
+      ]
+    },
+    {
+      "id": 72,
+      "topic": "handling_exceptions",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "A B C",
+        "B": "A B C D",
+        "C": "A C D",
+        "D": "A B D"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The exception is caught (A, B print), finally always runs (C), and since the exception was handled, execution continues after the try statement (D).",
+      "code": "public class Q72 {\n    public static void main(String[] args) {\n        try {\n            System.out.println(\"A\");\n            throw new RuntimeException(\"boom\");\n        } catch (RuntimeException e) {\n            System.out.println(\"B\");\n        } finally {\n            System.out.println(\"C\");\n        }\n        System.out.println(\"D\");\n    }\n}",
+      "tags": [
+        "try-catch-finally",
+        "control-flow"
+      ]
+    },
+    {
+      "id": 73,
+      "topic": "handling_exceptions",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "5\\ncleanup",
+        "B": "cleanup\\n5",
+        "C": "5",
+        "D": "Compilation error, finally cannot follow a return"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "finally always runs before the method actually returns, even though the return value was already computed, so \"cleanup\" prints first, then 5.",
+      "code": "public class Q73 {\n    static int check(int x) {\n        try {\n            if (x < 0) throw new IllegalArgumentException(\"negative\");\n            return x;\n        } finally {\n            System.out.println(\"cleanup\");\n        }\n    }\n    public static void main(String[] args) {\n        System.out.println(check(5));\n    }\n}",
+      "tags": [
+        "finally",
+        "return"
+      ]
+    },
+    {
+      "id": 74,
+      "topic": "handling_exceptions",
+      "difficulty": "medium",
+      "type": "multiple",
+      "question": "Which of the following are checked exceptions? (Choose all that apply)",
+      "options": {
+        "A": "IOException",
+        "B": "ClassNotFoundException",
+        "C": "ArithmeticException",
+        "D": "ArrayIndexOutOfBoundsException"
+      },
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "IOException and ClassNotFoundException are checked (they extend Exception but not RuntimeException). ArithmeticException and ArrayIndexOutOfBoundsException extend RuntimeException, so they are unchecked.",
+      "code": null,
+      "tags": [
+        "checked-exception",
+        "IOException",
+        "ClassNotFoundException"
+      ]
+    },
+    {
+      "id": 75,
+      "topic": "handling_exceptions",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "wrong catch",
+        "B": "Caught: inner",
+        "C": "Compilation error",
+        "D": "The program terminates abruptly with no output"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The inner catch only handles NullPointerException, so the RuntimeException propagates up to method()'s caller, where the outer catch (Exception) handles it.",
+      "code": "public class Q75 {\n    public static void main(String[] args) {\n        try {\n            method();\n        } catch (Exception e) {\n            System.out.println(\"Caught: \" + e.getMessage());\n        }\n    }\n    static void method() {\n        try {\n            throw new RuntimeException(\"inner\");\n        } catch (NullPointerException e) {\n            System.out.println(\"wrong catch\");\n        }\n    }\n}",
+      "tags": [
+        "exception-propagation",
+        "catch-specificity"
+      ]
+    },
+    {
+      "id": 76,
+      "topic": "handling_exceptions",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What happens when this code runs?",
+      "options": {
+        "A": "It prints \"finally\" then the program terminates with an uncaught IllegalStateException.",
+        "B": "It silently swallows both exceptions.",
+        "C": "It fails to compile because finally cannot follow a catch that throws.",
+        "D": "Only \"first\" is reported to the caller."
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "finally still runs even when the catch block itself throws a new exception. That new exception (IllegalStateException) then propagates, replacing the original.",
+      "code": "public class Q76 {\n    public static void main(String[] args) {\n        try {\n            throw new RuntimeException(\"first\");\n        } catch (RuntimeException e) {\n            throw new IllegalStateException(\"second\");\n        } finally {\n            System.out.println(\"finally\");\n        }\n    }\n}",
+      "tags": [
+        "finally",
+        "exception-in-catch"
+      ]
+    },
+    {
+      "id": 77,
+      "topic": "handling_exceptions",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "Compilation error, only one return is allowed",
+        "D": "The method returns nothing"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A return inside finally overrides a pending return from try. The finally block's return 2 wins, so 2 is printed.",
+      "code": "public class Q77 {\n    static int value() {\n        try {\n            return 1;\n        } finally {\n            return 2;\n        }\n    }\n    public static void main(String[] args) {\n        System.out.println(value());\n    }\n}",
+      "tags": [
+        "finally",
+        "return-override"
+      ]
+    },
+    {
+      "id": 78,
+      "topic": "handling_exceptions",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "The program hangs forever.",
+        "B": "Caught StackOverflowError",
+        "C": "Compilation error: Error cannot be caught.",
+        "D": "The JVM exits silently with no output."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Unbounded recursion exhausts the call stack, throwing java.lang.StackOverflowError. Error is a Throwable, so a catch clause naming it (or Throwable) can catch it.",
+      "code": "public class Q78 {\n    public static void main(String[] args) {\n        try {\n            recurse(0);\n        } catch (StackOverflowError e) {\n            System.out.println(\"Caught StackOverflowError\");\n        }\n    }\n    static void recurse(int n) {\n        recurse(n + 1);\n    }\n}",
+      "tags": [
+        "StackOverflowError",
+        "Error",
+        "Throwable"
+      ]
+    },
+    {
+      "id": 79,
+      "topic": "handling_exceptions",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What happens when this code is compiled?",
+      "options": {
+        "A": "It compiles and prints \"failed\".",
+        "B": "It fails to compile because main does not handle or declare ServiceException.",
+        "C": "It compiles because ServiceException is unchecked.",
+        "D": "It fails to compile because ServiceException must extend RuntimeException."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "ServiceException extends Exception, making it checked. call() declares throws ServiceException, so any caller — including main — must either catch it or declare throws ServiceException itself.",
+      "code": "class ServiceException extends Exception {\n    public ServiceException(String message) { super(message); }\n}\npublic class Q79 {\n    static void call() throws ServiceException {\n        throw new ServiceException(\"failed\");\n    }\n    public static void main(String[] args) {\n        call();\n    }\n}",
+      "tags": [
+        "custom-exception",
+        "checked-exception",
+        "throws"
+      ]
+    },
+    {
+      "id": 80,
+      "topic": "handling_exceptions",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "A",
+        "B": "B",
+        "C": "A then B",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "When a finally block throws while an exception from try is already pending, the finally block's exception (\"B\") replaces the original, and that is what the outer catch receives.",
+      "code": "public class Q80 {\n    public static void main(String[] args) {\n        try {\n            try {\n                throw new RuntimeException(\"A\");\n            } finally {\n                throw new RuntimeException(\"B\");\n            }\n        } catch (RuntimeException e) {\n            System.out.println(e.getMessage());\n        }\n    }\n}",
+      "tags": [
+        "finally",
+        "exception-suppression"
+      ]
+    },
+    {
+      "id": 81,
+      "topic": "handling_exceptions",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Runtime",
+        "B": "Arithmetic: / by zero",
+        "C": "Compilation error: unreachable catch block",
+        "D": "The program terminates abruptly"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Integer division by zero throws ArithmeticException. Catch blocks are checked in order, and since ArithmeticException is caught first (and is more specific than RuntimeException), that branch runs.",
+      "code": "public class Q81 {\n    public static void main(String[] args) {\n        try {\n            System.out.println(divide(10, 0));\n        } catch (ArithmeticException e) {\n            System.out.println(\"Arithmetic: \" + e.getMessage());\n        } catch (RuntimeException e) {\n            System.out.println(\"Runtime\");\n        }\n    }\n    static int divide(int a, int b) {\n        return a / b;\n    }\n}",
+      "tags": [
+        "ArithmeticException",
+        "catch-order"
+      ]
+    },
+    {
+      "id": 82,
+      "topic": "inheritance",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which keyword does a class use to inherit from another class?",
+      "options": {
+        "A": "implements",
+        "B": "extends",
+        "C": "inherits",
+        "D": "super"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A class uses extends to inherit from a single parent class in Java.",
+      "code": null,
+      "tags": [
+        "extends"
+      ]
+    },
+    {
+      "id": 83,
+      "topic": "inheritance",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which keyword does a class use to indicate it fulfills an interface's contract?",
+      "options": {
+        "A": "extends",
+        "B": "implements",
+        "C": "interface",
+        "D": "abstract"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A class uses implements to provide the methods declared by one or more interfaces.",
+      "code": null,
+      "tags": [
+        "implements",
+        "interface"
+      ]
+    },
+    {
+      "id": 84,
+      "topic": "inheritance",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "How many classes can a Java class directly extend?",
+      "options": {
+        "A": "Zero or one",
+        "B": "Exactly one",
+        "C": "Any number",
+        "D": "Up to two"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Java supports single inheritance for classes: a class extends at most one other class (Object if none is specified).",
+      "code": null,
+      "tags": [
+        "single-inheritance"
+      ]
+    },
+    {
+      "id": 85,
+      "topic": "inheritance",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "...",
+        "B": "Woof",
+        "C": "Compilation error",
+        "D": "Nothing is printed"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "a is declared as Animal but refers to a Dog object. Overridden instance methods are resolved by the actual object type at runtime, so Dog's speak() runs.",
+      "code": "class Animal {\n    void speak() { System.out.println(\"...\"); }\n}\nclass Dog extends Animal {\n    void speak() { System.out.println(\"Woof\"); }\n}\npublic class Q85 {\n    public static void main(String[] args) {\n        Animal a = new Dog();\n        a.speak();\n    }\n}",
+      "tags": [
+        "polymorphism",
+        "method-overriding"
+      ]
+    },
+    {
+      "id": 86,
+      "topic": "inheritance",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which statement about the super keyword is correct?",
+      "options": {
+        "A": "super() can only be used to call a superclass constructor and must be the first statement in a constructor.",
+        "B": "super refers to the current object, like this.",
+        "C": "super can be used to call a static method of the same class.",
+        "D": "super() is called automatically only if the subclass has no constructors at all."
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "super(...) invokes a superclass constructor and, when used, must be the first statement in the subclass constructor.",
+      "code": null,
+      "tags": [
+        "super",
+        "constructor"
+      ]
+    },
+    {
+      "id": 87,
+      "topic": "inheritance",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which class is the implicit superclass of every class in Java that does not explicitly extend another class?",
+      "options": {
+        "A": "Class",
+        "B": "Object",
+        "C": "Super",
+        "D": "Root"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Every class implicitly extends Object unless it explicitly extends another class.",
+      "code": null,
+      "tags": [
+        "Object",
+        "implicit-superclass"
+      ]
+    },
+    {
+      "id": 88,
+      "topic": "inheritance",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "I am a Vehicle",
+        "B": "I am a Car",
+        "C": "Compilation error",
+        "D": "I am a null"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Unlike methods, fields are not polymorphic: they are resolved by the reference's declared type. describe() is defined in Vehicle and reads Vehicle's own name field.",
+      "code": "class Vehicle {\n    protected String name = \"Vehicle\";\n    void describe() { System.out.println(\"I am a \" + name); }\n}\nclass Car extends Vehicle {\n    protected String name = \"Car\";\n}\npublic class Q88 {\n    public static void main(String[] args) {\n        Vehicle v = new Car();\n        v.describe();\n    }\n}",
+      "tags": [
+        "field-hiding",
+        "no-field-polymorphism"
+      ]
+    },
+    {
+      "id": 89,
+      "topic": "inheritance",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Area: 16",
+        "B": "Area: 16.0",
+        "C": "Compilation error: Shape cannot be instantiated",
+        "D": "Area: 0.0"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "print() calls area(), which resolves polymorphically to Square's implementation: 4*4 = 16.0 (a double).",
+      "code": "abstract class Shape {\n    abstract double area();\n    void print() { System.out.println(\"Area: \" + area()); }\n}\nclass Square extends Shape {\n    double side;\n    Square(double side) { this.side = side; }\n    double area() { return side * side; }\n}\npublic class Q89 {\n    public static void main(String[] args) {\n        Shape s = new Square(4);\n        s.print();\n    }\n}",
+      "tags": [
+        "abstract-class",
+        "polymorphism"
+      ]
+    },
+    {
+      "id": 90,
+      "topic": "inheritance",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "String",
+        "B": "Object",
+        "C": "Compilation error: ambiguous method call",
+        "D": "Both overloads run"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Overload resolution is based on the reference's compile-time (declared) type, not the runtime object. value is declared as Object, so greet(Object) is chosen even though it holds a String at runtime.",
+      "code": "class Base {\n    void greet(Object o) { System.out.println(\"Object\"); }\n    void greet(String s) { System.out.println(\"String\"); }\n}\npublic class Q90 {\n    public static void main(String[] args) {\n        Base b = new Base();\n        Object value = \"hi\";\n        b.greet(value);\n    }\n}",
+      "tags": [
+        "overloading",
+        "static-binding"
+      ]
+    },
+    {
+      "id": 91,
+      "topic": "inheritance",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Child",
+        "B": "Parent",
+        "C": "Compilation error",
+        "D": "Both are printed"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Static methods are not overridden, only hidden, and are resolved using the reference's declared type at compile time. p is declared as Parent, so Parent.hello() runs.",
+      "code": "class Parent {\n    static void hello() { System.out.println(\"Parent\"); }\n}\nclass Child extends Parent {\n    static void hello() { System.out.println(\"Child\"); }\n}\npublic class Q91 {\n    public static void main(String[] args) {\n        Parent p = new Child();\n        p.hello();\n    }\n}",
+      "tags": [
+        "static-method",
+        "method-hiding"
+      ]
+    },
+    {
+      "id": 92,
+      "topic": "inheritance",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "AA-init",
+        "B": "AB-init",
+        "C": "A-initB-init",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A's constructor runs first (prints A), then calls init(), which is overridden by B and resolves polymorphically even from inside the superclass constructor, printing B-init.",
+      "code": "class A {\n    A() { System.out.print(\"A\"); init(); }\n    void init() { System.out.print(\"A-init\"); }\n}\nclass B extends A {\n    void init() { System.out.print(\"B-init\"); }\n}\npublic class Q92 {\n    public static void main(String[] args) {\n        new B();\n    }\n}",
+      "tags": [
+        "constructor",
+        "overriding-in-constructor"
+      ]
+    },
+    {
+      "id": 93,
+      "topic": "inheritance",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Hello from interface",
+        "B": "Compilation error: Person must implement greet()",
+        "C": "Nothing is printed",
+        "D": "NoSuchMethodError at runtime"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Interfaces can provide default methods with a body. A class that does not override a default method simply inherits that implementation.",
+      "code": "interface Greeter {\n    default void greet() { System.out.println(\"Hello from interface\"); }\n}\nclass Person implements Greeter { }\npublic class Q93 {\n    public static void main(String[] args) {\n        new Person().greet();\n    }\n}",
+      "tags": [
+        "default-method",
+        "interface"
+      ]
+    },
+    {
+      "id": 94,
+      "topic": "inheritance",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "A",
+        "B": "B",
+        "C": "Compilation error: hello() is inherited from two interfaces with no way to choose one",
+        "D": "Both A and B are printed"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "When two interfaces provide the same default method, the implementing class must override it to resolve the conflict. InterfaceName.super.method() lets it explicitly call one of them; here it calls A's version.",
+      "code": "interface A { default void hello() { System.out.println(\"A\"); } }\ninterface B { default void hello() { System.out.println(\"B\"); } }\nclass C implements A, B {\n    public void hello() { A.super.hello(); }\n}\npublic class Q94 {\n    public static void main(String[] args) {\n        new C().hello();\n    }\n}",
+      "tags": [
+        "default-method",
+        "diamond-problem",
+        "interface-super"
+      ]
+    },
+    {
+      "id": 95,
+      "topic": "inheritance",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "10,10",
+        "B": "20,20",
+        "C": "20,10",
+        "D": "Compilation error: value is defined twice"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "Derived declares its own value field (20), which hides Base's field rather than overriding it. getValue() (overridden) returns Derived's value (20); super.getValue() explicitly calls Base's method, which reads Base's own field (10).",
+      "code": "class Base {\n    protected int value = 10;\n    protected int getValue() { return value; }\n}\nclass Derived extends Base {\n    private int value = 20;\n    public int getValue() { return value; }\n    public int getBaseValue() { return super.getValue(); }\n}\npublic class Q95 {\n    public static void main(String[] args) {\n        Derived d = new Derived();\n        System.out.println(d.getValue() + \",\" + d.getBaseValue());\n    }\n}",
+      "tags": [
+        "field-hiding",
+        "super",
+        "method-overriding"
+      ]
+    },
+    {
+      "id": 96,
+      "topic": "java_api",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which class is commonly used to build a mutable, growable list of objects?",
+      "options": {
+        "A": "Array",
+        "B": "ArrayList",
+        "C": "LinkedHashSet",
+        "D": "HashMap"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "ArrayList implements the List interface and provides a resizable array-backed list.",
+      "code": null,
+      "tags": [
+        "ArrayList",
+        "List"
+      ]
+    },
+    {
+      "id": 97,
+      "topic": "java_api",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "Two elements were added with add(), so size() returns 2.",
+      "code": "import java.util.ArrayList;\nimport java.util.List;\npublic class Q97 {\n    public static void main(String[] args) {\n        List<String> names = new ArrayList<>();\n        names.add(\"Ana\");\n        names.add(\"Beto\");\n        System.out.println(names.size());\n    }\n}",
+      "tags": [
+        "ArrayList",
+        "size"
+      ]
+    },
+    {
+      "id": 98,
+      "topic": "java_api",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which interface does HashMap implement to store key-value pairs?",
+      "options": {
+        "A": "List",
+        "B": "Map",
+        "C": "Set",
+        "D": "Collection"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "HashMap implements the Map interface, which associates unique keys with values.",
+      "code": null,
+      "tags": [
+        "HashMap",
+        "Map"
+      ]
+    },
+    {
+      "id": 99,
+      "topic": "java_api",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "null",
+        "B": "30",
+        "C": "Ana",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "put(\"Ana\", 30) associates the key \"Ana\" with 30, so get(\"Ana\") returns 30.",
+      "code": "import java.util.HashMap;\nimport java.util.Map;\npublic class Q99 {\n    public static void main(String[] args) {\n        Map<String, Integer> ages = new HashMap<>();\n        ages.put(\"Ana\", 30);\n        System.out.println(ages.get(\"Ana\"));\n    }\n}",
+      "tags": [
+        "HashMap",
+        "get"
+      ]
+    },
+    {
+      "id": 100,
+      "topic": "java_api",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which class represents an immutable sequence of characters in Java?",
+      "options": {
+        "A": "StringBuilder",
+        "B": "StringBuffer",
+        "C": "String",
+        "D": "CharArray"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "String objects are immutable: once created, their contents cannot change. StringBuilder and StringBuffer are mutable alternatives.",
+      "code": null,
+      "tags": [
+        "String",
+        "immutability"
+      ]
+    },
+    {
+      "id": 101,
+      "topic": "java_api",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "2",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "contains(2) checks whether the list has an element equal to 2, which it does.",
+      "code": "import java.util.List;\nimport java.util.Arrays;\npublic class Q101 {\n    public static void main(String[] args) {\n        List<Integer> numbers = Arrays.asList(1, 2, 3);\n        System.out.println(numbers.contains(2));\n    }\n}",
+      "tags": [
+        "List",
+        "contains"
+      ]
+    },
+    {
+      "id": 102,
+      "topic": "java_api",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "1,5",
+        "B": "6,5",
+        "C": "5,5",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "merge combines the existing value with the new one using the function when the key exists (1 + 5 = 6 for \"a\"), and simply inserts the new value when the key is absent (\"b\" becomes 5).",
+      "code": "import java.util.HashMap;\nimport java.util.Map;\npublic class Q102 {\n    public static void main(String[] args) {\n        Map<String, Integer> counts = new HashMap<>();\n        counts.put(\"a\", 1);\n        counts.merge(\"a\", 5, Integer::sum);\n        counts.merge(\"b\", 5, Integer::sum);\n        System.out.println(counts.get(\"a\") + \",\" + counts.get(\"b\"));\n    }\n}",
+      "tags": [
+        "Map.merge",
+        "method-reference"
+      ]
+    },
+    {
+      "id": 103,
+      "topic": "java_api",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "[1, 3, 5]",
+        "B": "[2, 4]",
+        "C": "[1, 2, 3, 4, 5]",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The stream filters elements where n % 2 == 0, keeping only 2 and 4, then collects them into a list.",
+      "code": "import java.util.List;\nimport java.util.stream.Collectors;\nimport java.util.Arrays;\npublic class Q103 {\n    public static void main(String[] args) {\n        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\n        List<Integer> evens = numbers.stream()\n            .filter(n -> n % 2 == 0)\n            .collect(Collectors.toList());\n        System.out.println(evens);\n    }\n}",
+      "tags": [
+        "Stream",
+        "filter",
+        "Collectors"
+      ]
+    },
+    {
+      "id": 104,
+      "topic": "java_api",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What happens when this code runs?",
+      "options": {
+        "A": "It prints [1, 3, 4].",
+        "B": "It throws a ConcurrentModificationException.",
+        "C": "It prints [1, 2, 3, 4] unchanged.",
+        "D": "It throws an UnsupportedOperationException."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Structurally modifying a list (remove) while iterating it with a for-each loop invalidates the iterator, throwing ConcurrentModificationException on the next call to next().",
+      "code": "import java.util.ArrayList;\nimport java.util.List;\npublic class Q104 {\n    public static void main(String[] args) {\n        List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4));\n        for (Integer n : numbers) {\n            if (n == 2) {\n                numbers.remove(n);\n            }\n        }\n        System.out.println(numbers);\n    }\n}",
+      "tags": [
+        "ConcurrentModificationException",
+        "iterator"
+      ]
+    },
+    {
+      "id": 105,
+      "topic": "java_api",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What happens when this code runs?",
+      "options": {
+        "A": "It prints [1, 2, 3, 4].",
+        "B": "It throws an UnsupportedOperationException.",
+        "C": "It fails to compile because List.of returns a List, not a mutable List.",
+        "D": "It silently ignores the add call and prints [1, 2, 3]."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "List.of returns an immutable list. Calling a mutating method like add() on it throws UnsupportedOperationException at runtime.",
+      "code": "import java.util.List;\npublic class Q105 {\n    public static void main(String[] args) {\n        List<Integer> numbers = List.of(1, 2, 3);\n        numbers.add(4);\n        System.out.println(numbers);\n    }\n}",
+      "tags": [
+        "List.of",
+        "immutable-collection"
+      ]
+    },
+    {
+      "id": 106,
+      "topic": "java_api",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "10",
+        "B": "20",
+        "C": "30",
+        "D": "null"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "putIfAbsent only inserts a value if the key is not already present. Since \"Ana\" already maps to 10 after the first call, the second call has no effect.",
+      "code": "import java.util.HashMap;\nimport java.util.Map;\npublic class Q106 {\n    public static void main(String[] args) {\n        Map<String, Integer> scores = new HashMap<>();\n        scores.putIfAbsent(\"Ana\", 10);\n        scores.putIfAbsent(\"Ana\", 20);\n        System.out.println(scores.get(\"Ana\"));\n    }\n}",
+      "tags": [
+        "Map.putIfAbsent"
+      ]
+    },
+    {
+      "id": 107,
+      "topic": "java_api",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "null",
+        "B": "default",
+        "C": "Compilation error",
+        "D": "NoSuchElementException is thrown"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Optional.empty() holds no value, so orElse(\"default\") returns the fallback \"default\" instead of throwing.",
+      "code": "import java.util.Optional;\npublic class Q107 {\n    public static void main(String[] args) {\n        Optional<String> name = Optional.empty();\n        System.out.println(name.orElse(\"default\"));\n    }\n}",
+      "tags": [
+        "Optional",
+        "orElse"
+      ]
+    },
+    {
+      "id": 108,
+      "topic": "java_api",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "pear, fig, apple, kiwi",
+        "B": "fig, pear, kiwi, apple",
+        "C": "apple, pear, kiwi, fig",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The comparator a.length() - b.length() sorts ascending by string length: fig(3), then the length-4 words pear and kiwi, then apple(5). Because sort is stable, pear and kiwi keep their original relative order (pear was first in the source list).",
+      "code": "import java.util.List;\nimport java.util.stream.Collectors;\npublic class Q108 {\n    public static void main(String[] args) {\n        List<String> words = List.of(\"pear\", \"fig\", \"apple\", \"kiwi\");\n        String result = words.stream()\n            .sorted((a, b) -> a.length() - b.length())\n            .collect(Collectors.joining(\", \"));\n        System.out.println(result);\n    }\n}",
+      "tags": [
+        "Stream",
+        "sorted",
+        "Collectors.joining",
+        "stable-sort"
+      ]
+    },
+    {
+      "id": 109,
+      "topic": "java_basics",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is the correct file extension for a Java source file?",
+      "options": {
+        "A": ".java",
+        ".B": ".jav",
+        "C": ".class",
+        "D": ".jar"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Java source code is written in files ending with .java, which the compiler turns into .class bytecode files.",
+      "code": null,
+      "tags": [
+        "source-file"
+      ]
+    },
+    {
+      "id": 110,
+      "topic": "java_basics",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which tool compiles a .java source file into bytecode?",
+      "options": {
+        "A": "java",
+        "B": "javac",
+        "C": "jar",
+        "D": "javap"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "javac is the Java compiler; it converts .java source files into .class bytecode files, which the java launcher then runs.",
+      "code": null,
+      "tags": [
+        "javac",
+        "compiler"
+      ]
+    },
+    {
+      "id": 111,
+      "topic": "java_basics",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Hello, Java",
+        "B": "Compilation error, System.out.println needs a semicolon inside the parentheses",
+        "C": "Nothing, main is missing static",
+        "D": "Hello Java (without the comma)"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "System.out.println prints its String argument followed by a newline, exactly as given.",
+      "code": "public class Q111 {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, Java\");\n    }\n}",
+      "tags": [
+        "println",
+        "hello-world"
+      ]
+    },
+    {
+      "id": 112,
+      "topic": "java_basics",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which statement about Java's main method signature is correct?",
+      "options": {
+        "A": "It must be declared public static void main(String[] args).",
+        "B": "It can be declared private, as long as it is static.",
+        "C": "It must return an int representing the exit code.",
+        "D": "The parameter name must be exactly \"args\"."
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "The JVM looks specifically for a public, static, void main method that takes a String array; the array's parameter name can be anything (args is just a convention).",
+      "code": null,
+      "tags": [
+        "main-method",
+        "entry-point"
+      ]
+    },
+    {
+      "id": 113,
+      "topic": "java_basics",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which of these is a Java keyword and therefore cannot be used as a variable name?",
+      "options": {
+        "A": "value",
+        "B": "class",
+        "C": "Main",
+        "D": "data"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "class is a reserved keyword used to declare classes, so it cannot be used as an identifier.",
+      "code": null,
+      "tags": [
+        "keywords",
+        "identifiers"
+      ]
+    },
+    {
+      "id": 114,
+      "topic": "java_basics",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "Which statement about a public top-level class in a .java file is correct?",
+      "options": {
+        "A": "A .java file can contain any number of public top-level classes.",
+        "B": "A .java file can contain at most one public top-level class, and its name must match the file name.",
+        "C": "A public class must always be the first class declared in the file.",
+        "D": "Public classes are not allowed to have a main method."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Java allows at most one public top-level class per source file, and that file's name must exactly match the public class's name.",
+      "code": null,
+      "tags": [
+        "public-class",
+        "file-naming"
+      ]
+    },
+    {
+      "id": 115,
+      "topic": "java_basics",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "5",
+        "B": "23",
+        "C": "Compilation error: add is called before it is declared",
+        "D": "Compilation error: add must be public"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Java does not require methods to be declared before they are used within the same class; add(2, 3) returns 5.",
+      "code": "public class Q115 {\n    public static void main(String[] args) {\n        int result = add(2, 3);\n        System.out.println(result);\n    }\n    static int add(int a, int b) {\n        return a + b;\n    }\n}",
+      "tags": [
+        "method-order",
+        "static-method"
+      ]
+    },
+    {
+      "id": 116,
+      "topic": "java_basics",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "Which statement correctly describes how a Java program runs?",
+      "options": {
+        "A": "The JVM interprets the .java source file directly, without compilation.",
+        "B": "javac compiles .java files into .class bytecode, and the JVM (via the java launcher) executes that bytecode.",
+        "C": "The java command compiles and links the program into a native executable ahead of time.",
+        "D": "Bytecode is only used for Android apps, not desktop Java programs."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The standard Java flow is source (.java) to compile with javac to bytecode (.class) to execute with the JVM via the java launcher.",
+      "code": null,
+      "tags": [
+        "compilation",
+        "JVM",
+        "bytecode"
+      ]
+    },
+    {
+      "id": 117,
+      "topic": "java_basics",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed when this program is run with no command-line arguments?",
+      "options": {
+        "A": "Has args: null",
+        "B": "No args",
+        "C": "Compilation error: args cannot be checked for length",
+        "D": "ArrayIndexOutOfBoundsException"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "With no command-line arguments, args is an empty array (length 0), so the else branch runs and prints \"No args\".",
+      "code": "public class Q117 {\n    public static void main(String[] args) {\n        if (args.length > 0) {\n            System.out.println(\"Has args: \" + args[0]);\n        } else {\n            System.out.println(\"No args\");\n        }\n    }\n}",
+      "tags": [
+        "command-line-args"
+      ]
+    },
+    {
+      "id": 118,
+      "topic": "java_basics",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "Which statement about Java packages is correct?",
+      "options": {
+        "A": "A package statement, if present, must be the first non-comment line in the file.",
+        "B": "A class without an explicit package declaration belongs to no package at all and cannot be compiled.",
+        "C": "Multiple package statements can appear in the same file to organize different classes.",
+        "D": "The import statement is required even for classes in the same package."
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "If a file declares a package, that declaration must come before any class or import statements (only comments may precede it). A class with no package statement belongs to the unnamed (default) package.",
+      "code": null,
+      "tags": [
+        "package",
+        "source-file-structure"
+      ]
+    },
+    {
+      "id": 119,
+      "topic": "java_basics",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Hi",
+        "B": "Hi, null",
+        "C": "Compilation error: ambiguous method call",
+        "D": "Hi, args"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "greet() with no arguments matches the no-parameter overload exactly, returning \"Hi\". Overload resolution is based on the number and types of arguments provided.",
+      "code": "public class Q119 {\n    public static void main(String[] args) {\n        System.out.println(greet());\n    }\n    static String greet() {\n        return \"Hi\";\n    }\n    static String greet(String name) {\n        return \"Hi, \" + name;\n    }\n}",
+      "tags": [
+        "overloading",
+        "method-resolution"
+      ]
+    },
+    {
+      "id": 120,
+      "topic": "java_basics",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "Compilation error: counter must be accessed through an instance"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "static fields belong to the class, not any instance, and can be accessed directly through the class name. Each call to increment() adds 1, so counter ends up as 2.",
+      "code": "class Helper {\n    static int counter = 0;\n    static void increment() { counter++; }\n}\npublic class Q120 {\n    public static void main(String[] args) {\n        Helper.increment();\n        Helper.increment();\n        System.out.println(Helper.counter);\n    }\n}",
+      "tags": [
+        "static-field",
+        "static-method"
+      ]
+    },
+    {
+      "id": 121,
+      "topic": "java_basics",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "5",
+        "B": "Compilation error: final variables must be initialized at declaration",
+        "C": "0",
+        "D": "Compilation error: x is never used"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "A final local variable can be left uninitialized at declaration as long as it is assigned exactly once before use. Here it is assigned once (x = 5) before being read, so it compiles and prints 5.",
+      "code": "public class Q121 {\n    public static void main(String[] args) {\n        final int x;\n        x = 5;\n        System.out.println(x);\n    }\n}",
+      "tags": [
+        "final",
+        "blank-final"
+      ]
+    },
+    {
+      "id": 122,
+      "topic": "java_basics",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Compilation error: add expects an int[], not three ints",
+        "B": "6",
+        "C": "3 (the count of arguments)",
+        "D": "123"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A varargs parameter (int...) lets the caller pass individual arguments, which Java collects into an array. 1+2+3 sums to 6.",
+      "code": "public class Q122 {\n    public static void main(String[] args) {\n        System.out.println(add(1, 2, 3));\n    }\n    static int add(int... numbers) {\n        int total = 0;\n        for (int n : numbers) total += n;\n        return total;\n    }\n}",
+      "tags": [
+        "varargs"
+      ]
+    },
+    {
+      "id": 123,
+      "topic": "java_basics",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Static Main Instance Constructor",
+        "B": "Instance Constructor Static Main",
+        "C": "Main Static Instance Constructor",
+        "D": "Static Instance Constructor Main"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "The static initializer block runs once when the class is first loaded, before main. main then prints \"Main\", and when new Q123() executes, the instance initializer block runs before the constructor body.",
+      "code": "public class Q123 {\n    static { System.out.print(\"Static \"); }\n    public static void main(String[] args) {\n        System.out.print(\"Main \");\n        new Q123();\n    }\n    { System.out.print(\"Instance \"); }\n    Q123() { System.out.print(\"Constructor\"); }\n}",
+      "tags": [
+        "static-initializer",
+        "instance-initializer",
+        "constructor"
+      ]
+    },
+    {
+      "id": 124,
+      "topic": "java_data_types",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which of these is a primitive type in Java?",
+      "options": {
+        "A": "String",
+        "B": "Integer",
+        "C": "boolean",
+        "D": "ArrayList"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "boolean is one of Java's eight primitive types. String, Integer, and ArrayList are all reference types (classes).",
+      "code": null,
+      "tags": [
+        "primitives"
+      ]
+    },
+    {
+      "id": 125,
+      "topic": "java_data_types",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which primitive type is used to store a single 16-bit Unicode character?",
+      "options": {
+        "A": "byte",
+        "B": "char",
+        "C": "short",
+        "D": "String"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "char stores a single 16-bit Unicode character. String represents a sequence of characters and is a reference type, not a primitive.",
+      "code": null,
+      "tags": [
+        "char"
+      ]
+    },
+    {
+      "id": 126,
+      "topic": "java_data_types",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "0",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "flag is explicitly assigned false before being printed, so println prints false.",
+      "code": "public class Q126 {\n    public static void main(String[] args) {\n        boolean flag;\n        flag = false;\n        System.out.println(flag);\n    }\n}",
+      "tags": [
+        "boolean"
+      ]
+    },
+    {
+      "id": 127,
+      "topic": "java_data_types",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which wrapper class corresponds to the primitive type int?",
+      "options": {
+        "A": "Int",
+        "B": "Integer",
+        "C": "Num",
+        "D": "IntegerValue"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Integer is the wrapper class for the primitive int, providing object behavior (like use in collections) around the primitive value.",
+      "code": null,
+      "tags": [
+        "wrapper-class",
+        "autoboxing"
+      ]
+    },
+    {
+      "id": 128,
+      "topic": "java_data_types",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "19",
+        "B": "19.0",
+        "C": "Compilation error: 19 is an int, not a double",
+        "D": "19.00"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The int literal 19 is widened automatically to a double when assigned to a double variable, and printing a double always shows a decimal part, so it prints 19.0.",
+      "code": "public class Q128 {\n    public static void main(String[] args) {\n        double price = 19;\n        System.out.println(price);\n    }\n}",
+      "tags": [
+        "widening",
+        "double"
+      ]
+    },
+    {
+      "id": 129,
+      "topic": "java_data_types",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "10000000000",
+        "B": "Compilation error: the literal is too large for an int",
+        "C": "An overflowed, incorrect number",
+        "D": "Compilation error: long literals need a cast"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "The L suffix marks the literal as a long, which can hold values far larger than int allows, so it prints correctly.",
+      "code": "public class Q129 {\n    public static void main(String[] args) {\n        long big = 10000000000L;\n        System.out.println(big);\n    }\n}",
+      "tags": [
+        "long",
+        "literal-suffix"
+      ]
+    },
+    {
+      "id": 130,
+      "topic": "java_data_types",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "3.5 then 3.5",
+        "B": "3 then 3.5",
+        "C": "3 then 3",
+        "D": "3.5 then 3"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "int / int performs integer division, truncating to 3. Casting a to double before dividing forces floating-point division, giving 3.5.",
+      "code": "public class Q130 {\n    public static void main(String[] args) {\n        int a = 7;\n        int b = 2;\n        System.out.println(a / b);\n        System.out.println((double) a / b);\n    }\n}",
+      "tags": [
+        "integer-division",
+        "casting"
+      ]
+    },
+    {
+      "id": 131,
+      "topic": "java_data_types",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Compilation error: cannot add an int to a byte without a cast",
+        "B": "15",
+        "C": "5",
+        "D": "10"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Compound assignment operators like += include an implicit cast back to the variable's type, so b += 5 is legal even though b + 5 alone would need an explicit (byte) cast. The result is 15.",
+      "code": "public class Q131 {\n    public static void main(String[] args) {\n        byte b = 10;\n        b += 5;\n        System.out.println(b);\n    }\n}",
+      "tags": [
+        "compound-assignment",
+        "byte",
+        "implicit-cast"
+      ]
+    },
+    {
+      "id": 132,
+      "topic": "java_data_types",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "5,5",
+        "B": "Compilation error: int cannot be assigned to Integer without new Integer(x)",
+        "C": "null,5",
+        "D": "Compilation error: Integer cannot be assigned to int"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Autoboxing converts the int 5 into an Integer automatically (y), and unboxing converts it back to int automatically (z), so both print 5.",
+      "code": "public class Q132 {\n    public static void main(String[] args) {\n        int x = 5;\n        Integer y = x;\n        int z = y;\n        System.out.println(y + \",\" + z);\n    }\n}",
+      "tags": [
+        "autoboxing",
+        "unboxing"
+      ]
+    },
+    {
+      "id": 133,
+      "topic": "java_data_types",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true,true",
+        "B": "true,false",
+        "C": "false,false",
+        "D": "false,true"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Java caches boxed Integer values from -128 to 127, so a and b (127) refer to the same cached object and == is true. 200 falls outside the cache, so c and d are distinct objects and == is false.",
+      "code": "public class Q133 {\n    public static void main(String[] args) {\n        Integer a = 127;\n        Integer b = 127;\n        Integer c = 200;\n        Integer d = 200;\n        System.out.println((a == b) + \",\" + (c == d));\n    }\n}",
+      "tags": [
+        "Integer-cache",
+        "autoboxing",
+        "reference-comparison"
+      ]
+    },
+    {
+      "id": 134,
+      "topic": "java_data_types",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "3.5",
+        "D": "Compilation error: float cannot be cast to int"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Casting a floating-point value to int truncates the decimal part (it does not round), so 3.5 becomes 3.",
+      "code": "public class Q134 {\n    public static void main(String[] args) {\n        float f = 3.5f;\n        int i = (int) f;\n        System.out.println(i);\n    }\n}",
+      "tags": [
+        "narrowing",
+        "casting",
+        "truncation"
+      ]
+    },
+    {
+      "id": 135,
+      "topic": "java_data_types",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "2147483648",
+        "B": "-2147483648",
+        "C": "An ArithmeticException is thrown",
+        "D": "0"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "int arithmetic silently overflows (it does not throw). Adding 1 to Integer.MAX_VALUE wraps around to Integer.MIN_VALUE, -2147483648.",
+      "code": "public class Q135 {\n    public static void main(String[] args) {\n        int a = Integer.MAX_VALUE;\n        int b = a + 1;\n        System.out.println(b);\n    }\n}",
+      "tags": [
+        "overflow",
+        "Integer.MAX_VALUE"
+      ]
+    },
+    {
+      "id": 136,
+      "topic": "java_data_types",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "Compilation error",
+        "D": "0.3"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "0.1 and 0.2 cannot be represented exactly in binary floating point, so 0.1 + 0.2 yields a value very slightly different from 0.3, making == false.",
+      "code": "public class Q136 {\n    public static void main(String[] args) {\n        double a = 0.1 + 0.2;\n        System.out.println(a == 0.3);\n    }\n}",
+      "tags": [
+        "floating-point-precision",
+        "double"
+      ]
+    },
+    {
+      "id": 137,
+      "topic": "java_data_types",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "B then B",
+        "B": "66 then 66",
+        "C": "B then 66",
+        "D": "Compilation error: char cannot be incremented"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "c++ increments the char's underlying numeric value and keeps the result as a char, so 'A' becomes 'B'. But 'A' + 1 in an int context promotes the char to its numeric value (65) before adding, giving the int 66.",
+      "code": "public class Q137 {\n    public static void main(String[] args) {\n        char c = 'A';\n        c++;\n        System.out.println(c);\n        int n = 'A' + 1;\n        System.out.println(n);\n    }\n}",
+      "tags": [
+        "char-arithmetic",
+        "numeric-promotion"
+      ]
+    },
+    {
+      "id": 138,
+      "topic": "java_data_types",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What happens when this code is compiled?",
+      "options": {
+        "A": "It prints 15.",
+        "B": "It fails to compile: s + 5 is promoted to int, which cannot be assigned to a short without a cast.",
+        "C": "It fails to compile: short does not support the + operator.",
+        "D": "It prints 10."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Arithmetic on byte, short, or char operands promotes the result to int. s + 5 is an int expression, so assigning it directly to a short variable requires an explicit (short) cast.",
+      "code": "public class Q138 {\n    public static void main(String[] args) {\n        short s = 10;\n        short result = s + 5;\n        System.out.println(result);\n    }\n}",
+      "tags": [
+        "numeric-promotion",
+        "short",
+        "narrowing"
+      ]
+    },
+    {
+      "id": 139,
+      "topic": "java_data_types",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "2.5, 1, -1",
+        "B": "2.5, 1, 1",
+        "C": "2, 1, -1",
+        "D": "2.5, -1, -1"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "5 / 2.0 performs floating-point division (2.5). For %, Java's remainder keeps the sign of the dividend: 5 % 2 is 1, and -5 % 2 is -1.",
+      "code": "public class Q139 {\n    public static void main(String[] args) {\n        System.out.println(5 / 2.0);\n        System.out.println(5 % 2);\n        System.out.println(-5 % 2);\n    }\n}",
+      "tags": [
+        "modulo",
+        "division",
+        "sign-of-remainder"
+      ]
+    },
+    {
+      "id": 140,
+      "topic": "loop_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0 1 2",
+        "B": "1 2 3",
+        "C": "0 1 2 3",
+        "D": "An infinite loop occurs"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "The loop prints i and then increments it, running while i is 0, 1, and 2; it stops once i reaches 3.",
+      "code": "public class Q140 {\n    public static void main(String[] args) {\n        int i = 0;\n        while (i < 3) {\n            System.out.println(i);\n            i++;\n        }\n    }\n}",
+      "tags": [
+        "while"
+      ]
+    },
+    {
+      "id": 141,
+      "topic": "loop_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "An infinite loop occurs",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A do-while loop always executes its body at least once before checking the condition. count becomes 1, and since 1 < 0 is false, the loop stops.",
+      "code": "public class Q141 {\n    public static void main(String[] args) {\n        int count = 0;\n        do {\n            count++;\n        } while (count < 0);\n        System.out.println(count);\n    }\n}",
+      "tags": [
+        "do-while"
+      ]
+    },
+    {
+      "id": 142,
+      "topic": "loop_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which keyword immediately exits the nearest enclosing loop?",
+      "options": {
+        "A": "continue",
+        "B": "break",
+        "C": "return",
+        "D": "exit"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "break terminates the nearest enclosing loop (or switch) immediately, skipping any remaining iterations.",
+      "code": null,
+      "tags": [
+        "break"
+      ]
+    },
+    {
+      "id": 143,
+      "topic": "loop_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which keyword skips the rest of the current iteration and moves to the loop's next iteration?",
+      "options": {
+        "A": "break",
+        "B": "skip",
+        "C": "continue",
+        "D": "next"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "continue skips the remaining statements in the current iteration and proceeds to the loop's next condition check.",
+      "code": null,
+      "tags": [
+        "continue"
+      ]
+    },
+    {
+      "id": 144,
+      "topic": "loop_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "01234",
+        "B": "0124",
+        "C": "012",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "continue skips printing when i == 3 but the loop keeps running, so every value except 3 is printed: 0, 1, 2, 4.",
+      "code": "public class Q144 {\n    public static void main(String[] args) {\n        for (int i = 0; i < 5; i++) {\n            if (i == 3) {\n                continue;\n            }\n            System.out.print(i);\n        }\n    }\n}",
+      "tags": [
+        "continue",
+        "for"
+      ]
+    },
+    {
+      "id": 145,
+      "topic": "loop_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "4",
+        "B": "6",
+        "C": "10",
+        "D": "15"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "The loop adds 1 + 2 + 3 + 4 to total, giving 10.",
+      "code": "public class Q145 {\n    public static void main(String[] args) {\n        int total = 0;\n        for (int i = 1; i <= 4; i++) {\n            total += i;\n        }\n        System.out.println(total);\n    }\n}",
+      "tags": [
+        "for",
+        "accumulator"
+      ]
+    },
+    {
+      "id": 146,
+      "topic": "loop_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0,10 then 1,8 then 2,6",
+        "B": "0,10 then 1,9 then 2,8",
+        "C": "Compilation error: a for loop can only declare and update one variable",
+        "D": "0,10 then 2,6"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "A for loop's init and update sections can hold multiple comma-separated statements. i counts 0,1,2 while j decreases by 2 each time from 10.",
+      "code": "public class Q146 {\n    public static void main(String[] args) {\n        for (int i = 0, j = 10; i < 3; i++, j -= 2) {\n            System.out.println(i + \",\" + j);\n        }\n    }\n}",
+      "tags": [
+        "for",
+        "multiple-variables"
+      ]
+    },
+    {
+      "id": 147,
+      "topic": "loop_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Compilation error: a for loop requires all three parts",
+        "B": "012",
+        "C": "An infinite loop that never terminates",
+        "D": "0123"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "for(;;) is a valid infinite loop whose only exit is the break inside the body, which triggers once i reaches 3, so it prints 0, 1, 2.",
+      "code": "public class Q147 {\n    public static void main(String[] args) {\n        int i = 0;\n        for (;;) {\n            if (i >= 3) break;\n            System.out.print(i);\n            i++;\n        }\n    }\n}",
+      "tags": [
+        "for",
+        "infinite-loop",
+        "break"
+      ]
+    },
+    {
+      "id": 148,
+      "topic": "loop_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "001020",
+        "B": "000102",
+        "C": "00 then it stops",
+        "D": "Compilation error: continue cannot take a label"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "continue outer skips the rest of the inner loop and moves the outer loop to its next iteration. So for each i, only j=0 prints before j reaches 1 and continue outer fires: 00, 10, 20.",
+      "code": "public class Q148 {\n    public static void main(String[] args) {\n        outer:\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < 3; j++) {\n                if (j == 1) {\n                    continue outer;\n                }\n                System.out.print(i + \"\" + j);\n            }\n        }\n    }\n}",
+      "tags": [
+        "labeled-continue",
+        "nested-loops"
+      ]
+    },
+    {
+      "id": 149,
+      "topic": "loop_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "54321",
+        "B": "5421",
+        "C": "543",
+        "D": "An infinite loop occurs"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "When i == 3, the loop decrements i and continues without printing, so 3 is skipped: prints 5, 4, then (skips 3), 2, 1.",
+      "code": "public class Q149 {\n    public static void main(String[] args) {\n        int i = 5;\n        while (i > 0) {\n            if (i == 3) {\n                i--;\n                continue;\n            }\n            System.out.print(i);\n            i--;\n        }\n    }\n}",
+      "tags": [
+        "while",
+        "continue"
+      ]
+    },
+    {
+      "id": 150,
+      "topic": "loop_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "1",
+        "B": "10",
+        "C": "Compilation error: v cannot be reassigned in a for-each loop",
+        "D": "30"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "The enhanced for loop's variable v holds a copy of each element's value. Reassigning v inside the loop does not modify the original array, so values[0] is unchanged at 1.",
+      "code": "public class Q150 {\n    public static void main(String[] args) {\n        int[] values = {1, 2, 3};\n        for (int v : values) {\n            v = v * 10;\n        }\n        System.out.println(values[0]);\n    }\n}",
+      "tags": [
+        "enhanced-for",
+        "copy-semantics"
+      ]
+    },
+    {
+      "id": 151,
+      "topic": "loop_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "5",
+        "B": "7",
+        "C": "8",
+        "D": "9"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "break only exits the inner loop, so the outer loop keeps going. i=0 runs all 3 inner iterations (count reaches 3); i=1 reaches count=5 on its second inner iteration and breaks; i=2 then runs its inner loop fully, adding 3 more, for a final count of 8.",
+      "code": "public class Q151 {\n    public static void main(String[] args) {\n        int count = 0;\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < 3; j++) {\n                count++;\n                if (count == 5) {\n                    break;\n                }\n            }\n        }\n        System.out.println(count);\n    }\n}",
+      "tags": [
+        "nested-loops",
+        "break",
+        "unlabeled"
+      ]
+    },
+    {
+      "id": 152,
+      "topic": "loop_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "15",
+        "B": "16",
+        "C": "25",
+        "D": "9"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Only odd i values (after increment) add to sum: 1,3,5,7,9. Running total: 1,4,9,16 (at i=7, sum=16>15 so it breaks before adding 9).",
+      "code": "public class Q152 {\n    public static void main(String[] args) {\n        int i = 0;\n        int sum = 0;\n        while (i < 10) {\n            i++;\n            if (i % 2 == 0) {\n                continue;\n            }\n            sum += i;\n            if (sum > 15) {\n                break;\n            }\n        }\n        System.out.println(sum);\n    }\n}",
+      "tags": [
+        "while",
+        "continue",
+        "break",
+        "accumulator"
+      ]
+    },
+    {
+      "id": 153,
+      "topic": "loop_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "25",
+        "B": "120",
+        "C": "60",
+        "D": "An infinite loop occurs"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The loop computes the factorial of 5 by multiplying result by i on each iteration: 1*1*2*3*4*5 = 120.",
+      "code": "public class Q153 {\n    public static void main(String[] args) {\n        int n = 5;\n        int result = 1;\n        int i = 1;\n        while (i <= n) {\n            result *= i;\n            i++;\n        }\n        System.out.println(result);\n    }\n}",
+      "tags": [
+        "while",
+        "factorial"
+      ]
+    },
+    {
+      "id": 154,
+      "topic": "methods_encapsulation",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which access modifier makes a member accessible from any other class?",
+      "options": {
+        "A": "private",
+        "B": "protected",
+        "C": "public",
+        "D": "default (no modifier)"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "public members are accessible from any class, in any package, with no restriction.",
+      "code": null,
+      "tags": [
+        "public",
+        "access-modifiers"
+      ]
+    },
+    {
+      "id": 155,
+      "topic": "methods_encapsulation",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "5",
+        "B": "0",
+        "C": "Compilation error: value is private",
+        "D": "null"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "value is private, but getValue() is a public method of the same class, so it can read value directly and return it.",
+      "code": "public class Q155 {\n    private int value = 5;\n    public int getValue() { return value; }\n    public static void main(String[] args) {\n        Q155 obj = new Q155();\n        System.out.println(obj.getValue());\n    }\n}",
+      "tags": [
+        "private-field",
+        "getter"
+      ]
+    },
+    {
+      "id": 156,
+      "topic": "methods_encapsulation",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is the purpose of a constructor in a Java class?",
+      "options": {
+        "A": "To destroy an object when it is no longer needed.",
+        "B": "To initialize a newly created object's state.",
+        "C": "To declare the class's fields.",
+        "D": "To override a method from the superclass."
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A constructor runs when an object is created (with new) and is responsible for setting up its initial state.",
+      "code": null,
+      "tags": [
+        "constructor"
+      ]
+    },
+    {
+      "id": 157,
+      "topic": "methods_encapsulation",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0",
+        "B": "10",
+        "C": "Compilation error",
+        "D": "null"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The no-argument constructor sets x to 10 when the object is created, so it prints 10.",
+      "code": "public class Q157 {\n    int x;\n    public Q157() {\n        x = 10;\n    }\n    public static void main(String[] args) {\n        Q157 obj = new Q157();\n        System.out.println(obj.x);\n    }\n}",
+      "tags": [
+        "constructor",
+        "instance-field"
+      ]
+    },
+    {
+      "id": 158,
+      "topic": "methods_encapsulation",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0",
+        "B": "7",
+        "C": "Compilation error: private fields cannot be accessed in main",
+        "D": "Compilation error: this.x is not allowed"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "this.x = x assigns the constructor parameter to the instance field, disambiguating them by name. main is in the same class as the private field, so accessing obj.x is legal, and it prints 7.",
+      "code": "public class Q158 {\n    private int x;\n    public Q158(int x) { this.x = x; }\n    public static void main(String[] args) {\n        Q158 obj = new Q158(7);\n        System.out.println(obj.x);\n    }\n}",
+      "tags": [
+        "this",
+        "constructor-parameter",
+        "shadowing"
+      ]
+    },
+    {
+      "id": 159,
+      "topic": "methods_encapsulation",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "no-arg then with x=5",
+        "B": "with x=5 then no-arg",
+        "C": "Compilation error: this() can only be called once per class",
+        "D": "with x=5"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "this(5) calls the other constructor first (as the very first statement), which prints \"with x=5\", and then execution returns to finish the no-arg constructor, printing \"no-arg\".",
+      "code": "public class Q159 {\n    public Q159() {\n        this(5);\n        System.out.println(\"no-arg\");\n    }\n    public Q159(int x) {\n        System.out.println(\"with x=\" + x);\n    }\n    public static void main(String[] args) {\n        new Q159();\n    }\n}",
+      "tags": [
+        "constructor-chaining",
+        "this()"
+      ]
+    },
+    {
+      "id": 160,
+      "topic": "methods_encapsulation",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "1",
+        "B": "101",
+        "C": "100",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "Java is pass-by-value for primitives: modify receives a copy of value. Changing the parameter inside the method does not affect the caller's variable, so value is still 1.",
+      "code": "public class Q160 {\n    static void modify(int x) { x = x + 100; }\n    public static void main(String[] args) {\n        int value = 1;\n        modify(value);\n        System.out.println(value);\n    }\n}",
+      "tags": [
+        "pass-by-value",
+        "primitive"
+      ]
+    },
+    {
+      "id": 161,
+      "topic": "methods_encapsulation",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "Compilation error",
+        "D": "0"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Java passes a copy of the reference, but that copy still points to the same List object, so mutating it (add) through the parameter affects the original list too. The list ends up with 2 elements.",
+      "code": "import java.util.List;\npublic class Q161 {\n    static void addItem(List<String> items) { items.add(\"new\"); }\n    public static void main(String[] args) {\n        List<String> list = new java.util.ArrayList<>();\n        list.add(\"first\");\n        addItem(list);\n        System.out.println(list.size());\n    }\n}",
+      "tags": [
+        "pass-by-value",
+        "reference-semantics"
+      ]
+    },
+    {
+      "id": 162,
+      "topic": "methods_encapsulation",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "0,0",
+        "B": "1,1",
+        "C": "1,2",
+        "D": "Compilation error: nextId cannot be shared between instances"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "nextId is static, so it is shared by all instances rather than copied per object. Each constructor call reads then increments it, so a gets 1 and b gets 2.",
+      "code": "public class Q162 {\n    private static int nextId = 1;\n    private int id;\n    public Q162() { id = nextId++; }\n    public static void main(String[] args) {\n        Q162 a = new Q162();\n        Q162 b = new Q162();\n        System.out.println(a.id + \",\" + b.id);\n    }\n}",
+      "tags": [
+        "static-field",
+        "instance-counter"
+      ]
+    },
+    {
+      "id": 163,
+      "topic": "methods_encapsulation",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Rejected then -5",
+        "B": "Rejected then 0",
+        "C": "-5 then Rejected",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "setValue validates its input and throws before assigning when the value is negative, so value stays at its default, 0. The caller catches the exception and prints \"Rejected\", then reads getValue(), which is still 0.",
+      "code": "public class Q163 {\n    private int value;\n    public void setValue(int value) {\n        if (value < 0) {\n            throw new IllegalArgumentException(\"must be non-negative\");\n        }\n        this.value = value;\n    }\n    public int getValue() { return value; }\n    public static void main(String[] args) {\n        Q163 obj = new Q163();\n        try {\n            obj.setValue(-5);\n        } catch (IllegalArgumentException e) {\n            System.out.println(\"Rejected\");\n        }\n        System.out.println(obj.getValue());\n    }\n}",
+      "tags": [
+        "encapsulation",
+        "validation",
+        "setter"
+      ]
+    },
+    {
+      "id": 164,
+      "topic": "methods_encapsulation",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "constructor init",
+        "B": "init constructor",
+        "C": "Compilation error: value cannot be initialized with a method call",
+        "D": "init only (constructor never runs)"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Instance field initializers run in the order they appear, before the constructor body executes. So init() runs first (printing \"init\"), and then the constructor body runs (printing \"constructor\").",
+      "code": "public class Q164 {\n    private int value = init();\n    private int init() {\n        System.out.print(\"init \");\n        return 42;\n    }\n    public Q164() {\n        System.out.print(\"constructor \");\n    }\n    public static void main(String[] args) {\n        new Q164();\n        System.out.println();\n    }\n}",
+      "tags": [
+        "field-initializer",
+        "initialization-order"
+      ]
+    },
+    {
+      "id": 165,
+      "topic": "methods_encapsulation",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "1",
+        "B": "Compilation error: final fields must be initialized at declaration",
+        "C": "0",
+        "D": "Compilation error: final fields cannot be assigned in a constructor"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "A final instance field can be left uninitialized at declaration as long as every constructor assigns it exactly once, which this constructor does.",
+      "code": "public class Q165 {\n    private final int id;\n    public Q165(int id) { this.id = id; }\n    public static void main(String[] args) {\n        Q165 obj = new Q165(1);\n        System.out.println(obj.id);\n    }\n}",
+      "tags": [
+        "final-field",
+        "constructor"
+      ]
+    },
+    {
+      "id": 166,
+      "topic": "methods_encapsulation",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "2,1",
+        "B": "3,3",
+        "C": "2,2",
+        "D": "Compilation error: Counter is private"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "count is a non-static (instance) field, so each Counter object keeps its own independent copy. c1's two increments and c2's one increment do not affect each other.",
+      "code": "public class Q166 {\n    private static class Counter {\n        private int count;\n        void increment() { count++; }\n        int get() { return count; }\n    }\n    public static void main(String[] args) {\n        Counter c1 = new Counter();\n        Counter c2 = new Counter();\n        c1.increment();\n        c1.increment();\n        c2.increment();\n        System.out.println(c1.get() + \",\" + c2.get());\n    }\n}",
+      "tags": [
+        "nested-class",
+        "instance-state"
+      ]
+    },
+    {
+      "id": 167,
+      "topic": "methods_encapsulation",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "16 then 16",
+        "B": "16 then 16.0",
+        "C": "Compilation error: overloaded methods cannot differ only by return type",
+        "D": "16.0 then 16.0"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "square(4) matches the int overload exactly, printing the int 16. square(4.0) matches the double overload, printing the double 16.0. Overloading by parameter type (not just return type) is legal.",
+      "code": "public class Q167 {\n    static int square(int x) { return x * x; }\n    static double square(double x) { return x * x; }\n    public static void main(String[] args) {\n        System.out.println(square(4));\n        System.out.println(square(4.0));\n    }\n}",
+      "tags": [
+        "overloading",
+        "return-type"
+      ]
+    },
+    {
+      "id": 168,
+      "topic": "methods_encapsulation",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "3",
+        "B": "6",
+        "C": "Compilation error: add cannot be chained like this",
+        "D": "1"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "add returns this (the same object), which enables method chaining: each call mutates and returns the same instance. 1+2+3 accumulates to 6 in total.",
+      "code": "public class Q168 {\n    private int total;\n    public Q168 add(int n) {\n        total += n;\n        return this;\n    }\n    public int getTotal() { return total; }\n    public static void main(String[] args) {\n        Q168 calc = new Q168();\n        int result = calc.add(1).add(2).add(3).getTotal();\n        System.out.println(result);\n    }\n}",
+      "tags": [
+        "method-chaining",
+        "fluent-interface",
+        "this"
+      ]
+    },
+    {
+      "id": 169,
+      "topic": "operators_decision_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "2",
+        "B": "1",
+        "C": "2.33",
+        "D": "21"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The % operator returns the remainder of integer division: 7 divided by 3 is 2 remainder 1.",
+      "code": "public class Q169 {\n    public static void main(String[] args) {\n        int x = 7;\n        int y = 3;\n        System.out.println(x % y);\n    }\n}",
+      "tags": [
+        "modulo"
+      ]
+    },
+    {
+      "id": 170,
+      "topic": "operators_decision_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "5",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "x is 5, which is both greater than 3 and less than 10, so both sides of && are true, making the whole expression true.",
+      "code": "public class Q170 {\n    public static void main(String[] args) {\n        int x = 5;\n        System.out.println(x > 3 && x < 10);\n    }\n}",
+      "tags": [
+        "logical-and",
+        "comparison"
+      ]
+    },
+    {
+      "id": 171,
+      "topic": "operators_decision_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which operator checks whether two values are NOT equal?",
+      "options": {
+        "A": "=",
+        "B": "==",
+        "C": "!=",
+        "D": "<>"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "!= is Java's not-equal-to operator. = is assignment, == is equality, and <> is not valid Java syntax.",
+      "code": null,
+      "tags": [
+        "not-equal"
+      ]
+    },
+    {
+      "id": 172,
+      "topic": "operators_decision_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "A",
+        "B": "B",
+        "C": "true",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "The ternary operator evaluates score >= 90 (false, since 85 < 90), so it returns the value after the colon, \"B\".",
+      "code": "public class Q172 {\n    public static void main(String[] args) {\n        int score = 85;\n        String grade = (score >= 90) ? \"A\" : \"B\";\n        System.out.println(grade);\n    }\n}",
+      "tags": [
+        "ternary"
+      ]
+    },
+    {
+      "id": 173,
+      "topic": "operators_decision_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Monday",
+        "B": "Wednesday",
+        "C": "Other",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "day is 3, which does not match the first condition (day == 1) but does match the else-if condition (day == 3), so \"Wednesday\" is printed.",
+      "code": "public class Q173 {\n    public static void main(String[] args) {\n        int day = 3;\n        if (day == 1) {\n            System.out.println(\"Monday\");\n        } else if (day == 3) {\n            System.out.println(\"Wednesday\");\n        } else {\n            System.out.println(\"Other\");\n        }\n    }\n}",
+      "tags": [
+        "if-else-if"
+      ]
+    },
+    {
+      "id": 174,
+      "topic": "operators_decision_constructs",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "An ArithmeticException is thrown",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "|| short-circuits: since a < b is already true, the right-hand side (1 / 0) is never evaluated, so no exception occurs and the result is true.",
+      "code": "public class Q174 {\n    public static void main(String[] args) {\n        int a = 5;\n        int b = 10;\n        System.out.println(a < b || 1 / 0 == 0);\n    }\n}",
+      "tags": [
+        "short-circuit",
+        "logical-or"
+      ]
+    },
+    {
+      "id": 175,
+      "topic": "operators_decision_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Early week",
+        "B": "Mid week",
+        "C": "Other",
+        "D": "Compilation error: duplicate case labels"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Grouping case 3: and case 4: with no code between them means both fall through to the same statement. day is 3, so \"Mid week\" prints and break exits the switch.",
+      "code": "public class Q175 {\n    public static void main(String[] args) {\n        int day = 3;\n        switch (day) {\n            case 1:\n            case 2:\n                System.out.println(\"Early week\");\n                break;\n            case 3:\n            case 4:\n                System.out.println(\"Mid week\");\n                break;\n            default:\n                System.out.println(\"Other\");\n        }\n    }\n}",
+      "tags": [
+        "switch",
+        "fall-through",
+        "grouped-labels"
+      ]
+    },
+    {
+      "id": 176,
+      "topic": "operators_decision_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "7,11",
+        "B": "7,12",
+        "C": "6,11",
+        "D": "7,10"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "x++ uses 5 then increments x to 6. ++x increments x to 7 then uses 7. So y = 5 + 7 = 12, and x ends at 7.",
+      "code": "public class Q176 {\n    public static void main(String[] args) {\n        int x = 5;\n        int y = x++ + ++x;\n        System.out.println(x + \",\" + y);\n    }\n}",
+      "tags": [
+        "pre-increment",
+        "post-increment"
+      ]
+    },
+    {
+      "id": 177,
+      "topic": "operators_decision_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Weekday",
+        "B": "Weekend",
+        "C": "Unknown",
+        "D": "Compilation error: switch cannot be used as an expression"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "The switch expression (arrow form) matches \"TUE\" against the first case, which lists several comma-separated labels including \"TUE\", producing \"Weekday\".",
+      "code": "public class Q177 {\n    public static void main(String[] args) {\n        String day = \"TUE\";\n        String result = switch (day) {\n            case \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\" -> \"Weekday\";\n            case \"SAT\", \"SUN\" -> \"Weekend\";\n            default -> \"Unknown\";\n        };\n        System.out.println(result);\n    }\n}",
+      "tags": [
+        "switch-expression",
+        "arrow-syntax"
+      ]
+    },
+    {
+      "id": 178,
+      "topic": "operators_decision_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "4",
+        "B": "0",
+        "C": "6",
+        "D": "Compilation error: ternary operators cannot be nested"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "Ternary expressions can be nested. a > b is false, so it evaluates the nested ternary: a == b is also false, so the final else branch, b (6), is returned.",
+      "code": "public class Q178 {\n    public static void main(String[] args) {\n        int a = 4;\n        int b = 6;\n        int max = (a > b) ? a : (a == b) ? 0 : b;\n        System.out.println(max);\n    }\n}",
+      "tags": [
+        "nested-ternary"
+      ]
+    },
+    {
+      "id": 179,
+      "topic": "operators_decision_constructs",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "7",
+        "B": "13",
+        "C": "10",
+        "D": "Compilation error: assignment cannot be used inside a ternary"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "x > 5 is true, so the ternary evaluates x -= 3, which subtracts 3 from x (making it 7) and yields 7 as the expression's value, which is then assigned back to x.",
+      "code": "public class Q179 {\n    public static void main(String[] args) {\n        int x = 10;\n        x = x > 5 ? (x -= 3) : (x += 3);\n        System.out.println(x);\n    }\n}",
+      "tags": [
+        "ternary",
+        "compound-assignment"
+      ]
+    },
+    {
+      "id": 180,
+      "topic": "operators_decision_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "3,0",
+        "B": "3,3",
+        "C": "3,6",
+        "D": "2,3"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Each i++ uses the current value of i and then increments it. The three post-increments contribute 0, then 1, then 2 to the sum (0+1+2=3), and i ends at 3.",
+      "code": "public class Q180 {\n    public static void main(String[] args) {\n        int i = 0;\n        int result = i++ + i++ + i++;\n        System.out.println(i + \",\" + result);\n    }\n}",
+      "tags": [
+        "post-increment",
+        "evaluation-order"
+      ]
+    },
+    {
+      "id": 181,
+      "topic": "operators_decision_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "one",
+        "B": "one two",
+        "C": "one two three",
+        "D": "Compilation error"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Without a break after case 1, execution falls through into case 2's code, printing \"one \" then \"two \", and then the break in case 2 stops it before reaching case 3.",
+      "code": "public class Q181 {\n    public static void main(String[] args) {\n        int x = 1;\n        switch (x) {\n            case 1:\n                System.out.print(\"one \");\n            case 2:\n                System.out.print(\"two \");\n                break;\n            case 3:\n                System.out.print(\"three \");\n        }\n    }\n}",
+      "tags": [
+        "switch",
+        "fall-through",
+        "missing-break"
+      ]
+    },
+    {
+      "id": 182,
+      "topic": "operators_decision_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "A then false",
+        "B": "AB then false",
+        "C": "AB then true",
+        "D": "A then true"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "&& short-circuits: since sideEffect(\"A\", false) is already false, the right-hand side is never evaluated (\"B\" is never printed), and the overall result is false.",
+      "code": "public class Q182 {\n    static boolean sideEffect(String label, boolean value) {\n        System.out.print(label);\n        return value;\n    }\n    public static void main(String[] args) {\n        boolean result = sideEffect(\"A\", false) && sideEffect(\"B\", true);\n        System.out.println();\n        System.out.println(result);\n    }\n}",
+      "tags": [
+        "short-circuit",
+        "side-effects"
+      ]
+    },
+    {
+      "id": 183,
+      "topic": "operators_decision_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "5,5,5",
+        "B": "10,5,10",
+        "C": "5,10,10",
+        "D": "Compilation error: a ternary branch cannot be an assignment"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "a == b is true, so only the first branch, the assignment a = 10, is evaluated (the other branch, b = 10, never runs). a becomes 10, b stays 5, and c takes the assignment's value, 10.",
+      "code": "public class Q183 {\n    public static void main(String[] args) {\n        int a = 5, b = 5;\n        int c = (a == b) ? (a = 10) : (b = 10);\n        System.out.println(a + \",\" + b + \",\" + c);\n    }\n}",
+      "tags": [
+        "ternary",
+        "assignment-expression"
+      ]
+    },
+    {
+      "id": 184,
+      "topic": "operators_decision_constructs",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "2",
+        "D": "Compilation error: yield is not a valid keyword"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A switch expression's arrow branch can be a block that computes a value with yield. For x=2, temp is 4, and yield temp + 1 produces 5.",
+      "code": "public class Q184 {\n    public static void main(String[] args) {\n        int x = 2;\n        int result = switch (x) {\n            case 1 -> 10;\n            case 2 -> {\n                int temp = x * x;\n                yield temp + 1;\n            }\n            default -> 0;\n        };\n        System.out.println(result);\n    }\n}",
+      "tags": [
+        "switch-expression",
+        "yield",
+        "block-branch"
+      ]
+    },
+    {
+      "id": 185,
+      "topic": "other",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which of these is a valid Java identifier?",
+      "options": {
+        "A": "2ndValue",
+        "B": "_count",
+        "C": "class",
+        "D": "my-value"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Identifiers can start with a letter, underscore, or dollar sign, but not a digit. class is a reserved keyword, and hyphens are not allowed in identifiers.",
+      "code": null,
+      "tags": [
+        "identifiers"
+      ]
+    },
+    {
+      "id": 186,
+      "topic": "other",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which symbol starts a single-line comment in Java?",
+      "options": {
+        "A": "#",
+        "B": "//",
+        "C": "<!--",
+        "D": "'"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "// starts a single-line comment that extends to the end of the line. /* ... */ is used for multi-line comments.",
+      "code": null,
+      "tags": [
+        "comments"
+      ]
+    },
+    {
+      "id": 187,
+      "topic": "other",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "It's a String",
+        "B": "Compilation error",
+        "C": "Nothing is printed",
+        "D": "false"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "instanceof checks whether obj refers to an object of the given type at runtime; since obj holds a String, the condition is true.",
+      "code": "public class Q187 {\n    public static void main(String[] args) {\n        Object obj = \"hello\";\n        if (obj instanceof String) {\n            System.out.println(\"It's a String\");\n        }\n    }\n}",
+      "tags": [
+        "instanceof"
+      ]
+    },
+    {
+      "id": 188,
+      "topic": "other",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which keyword declares a fixed set of named constants as a type?",
+      "options": {
+        "A": "const",
+        "B": "enum",
+        "C": "final",
+        "D": "struct"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "enum declares an enumerated type, a fixed set of named constant values.",
+      "code": null,
+      "tags": [
+        "enum"
+      ]
+    },
+    {
+      "id": 189,
+      "topic": "other",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "Compilation error",
+        "D": "null"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "String literals are interned and shared from the string pool, so two identical literals refer to the same object, making == true.",
+      "code": "public class Q189 {\n    public static void main(String[] args) {\n        String a = \"hi\";\n        String b = \"hi\";\n        System.out.println(a == b);\n    }\n}",
+      "tags": [
+        "string-pool",
+        "interning"
+      ]
+    },
+    {
+      "id": 190,
+      "topic": "other",
+      "difficulty": "easy",
+      "type": "single",
+      "question": "Which method should be overridden alongside equals() to keep an object's behavior consistent in hash-based collections like HashMap?",
+      "options": {
+        "A": "toString()",
+        "B": "hashCode()",
+        "C": "clone()",
+        "D": "finalize()"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Objects that are equal according to equals() must produce the same hashCode(); otherwise hash-based collections may not find them correctly. The two methods should always be overridden together.",
+      "code": null,
+      "tags": [
+        "equals",
+        "hashCode",
+        "contract"
+      ]
+    },
+    {
+      "id": 191,
+      "topic": "other",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "Compilation error: equals is not defined",
+        "D": "NullPointerException"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Point does not override equals(), so it uses Object's default implementation, which compares references. p1 and p2 are two distinct objects, so equals() returns false even though their fields match.",
+      "code": "public class Q191 {\n    public static void main(String[] args) {\n        Point p1 = new Point(1, 2);\n        Point p2 = new Point(1, 2);\n        System.out.println(p1.equals(p2));\n    }\n}\nclass Point {\n    int x, y;\n    Point(int x, int y) { this.x = x; this.y = y; }\n}",
+      "tags": [
+        "equals",
+        "default-implementation",
+        "Object"
+      ]
+    },
+    {
+      "id": 192,
+      "topic": "other",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "42",
+        "B": "43",
+        "C": "Compilation error: instanceof cannot declare a variable",
+        "D": "true"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Pattern matching for instanceof lets you bind the checked value to a new variable (number) directly in the condition, which can then be used inside the if block. 42 + 1 is 43.",
+      "code": "public class Q192 {\n    public static void main(String[] args) {\n        Object value = 42;\n        if (value instanceof Integer number) {\n            System.out.println(number + 1);\n        }\n    }\n}",
+      "tags": [
+        "instanceof-pattern",
+        "pattern-matching"
+      ]
+    },
+    {
+      "id": 193,
+      "topic": "other",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "String Integer Double",
+        "B": "String Integer Other",
+        "C": "Compilation error: switch cannot match on type",
+        "D": "Other Other Other"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "A switch on an Object can pattern-match on type. \"text\" matches String, 5 (an Integer) matches Integer, and 3.14 (a Double) matches neither specific case, falling to default (\"Other\").",
+      "code": "public class Q193 {\n    public static void main(String[] args) {\n        Object[] items = { \"text\", 5, 3.14 };\n        for (Object item : items) {\n            String type = switch (item) {\n                case String s -> \"String\";\n                case Integer i -> \"Integer\";\n                default -> \"Other\";\n            };\n            System.out.print(type + \" \");\n        }\n    }\n}",
+      "tags": [
+        "switch-pattern-matching",
+        "type-patterns"
+      ]
+    },
+    {
+      "id": 194,
+      "topic": "other",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "3,4",
+        "B": "Compilation error: records cannot have accessor methods",
+        "C": "x,y",
+        "D": "Compilation error: record is not a valid keyword"
+      },
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "A record automatically generates accessor methods named after its components (x() and y() here, not getX()/getY()), returning the values passed to its constructor.",
+      "code": "record Point(int x, int y) {}\npublic class Q194 {\n    public static void main(String[] args) {\n        Point p = new Point(3, 4);\n        System.out.println(p.x() + \",\" + p.y());\n    }\n}",
+      "tags": [
+        "record",
+        "accessor-methods"
+      ]
+    },
+    {
+      "id": 195,
+      "topic": "other",
+      "difficulty": "medium",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "pear",
+        "B": "apple",
+        "C": "fig",
+        "D": "none"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "max with this comparator picks the element with the greatest length. \"apple\" has 5 characters, more than \"pear\" (4) or \"fig\" (3).",
+      "code": "import java.util.List;\npublic class Q195 {\n    public static void main(String[] args) {\n        List<String> words = List.of(\"pear\", \"apple\", \"fig\");\n        String longest = words.stream()\n            .max((a, b) -> a.length() - b.length())\n            .orElse(\"none\");\n        System.out.println(longest);\n    }\n}",
+      "tags": [
+        "Stream",
+        "max",
+        "Comparator"
+      ]
+    },
+    {
+      "id": 196,
+      "topic": "other",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Using resource",
+        "B": "Using resource then Closed",
+        "C": "Closed then Using resource",
+        "D": "Compilation error: try-with-resources requires a new declaration"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "try-with-resources can also reference an already-declared effectively-final resource variable. The resource's close() method (here a lambda) always runs automatically after the try block, even without an explicit catch or finally needing to call it.",
+      "code": "public class Q196 {\n    public static void main(String[] args) {\n        AutoCloseable resource = () -> System.out.println(\"Closed\");\n        try (resource) {\n            System.out.println(\"Using resource\");\n        } catch (Exception e) {\n            System.out.println(\"Error\");\n        }\n    }\n}",
+      "tags": [
+        "try-with-resources",
+        "AutoCloseable"
+      ]
+    },
+    {
+      "id": 197,
+      "topic": "other",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "abc",
+        "B": "abcdef",
+        "C": "xyz!",
+        "D": "abcdefxyz!"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "s.append(\"def\") mutates the same object the caller's sb refers to. Reassigning the local variable s to a new StringBuilder afterward only changes what the local parameter points to; it has no effect on the caller's sb.",
+      "code": "public class Q197 {\n    public static void main(String[] args) {\n        StringBuilder sb = new StringBuilder(\"abc\");\n        modify(sb);\n        System.out.println(sb);\n    }\n    static void modify(StringBuilder s) {\n        s.append(\"def\");\n        s = new StringBuilder(\"xyz\");\n        s.append(\"!\");\n    }\n}",
+      "tags": [
+        "reference-semantics",
+        "StringBuilder",
+        "pass-by-value"
+      ]
+    },
+    {
+      "id": 198,
+      "topic": "other",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "[1, 2, 3]",
+        "B": "[3, 2, 1]",
+        "C": "[3, 1, 2]",
+        "D": "Compilation error: reverseOrder is not a valid Comparator"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Collections.reverseOrder() returns a Comparator that sorts in descending natural order, so the list ends up as [3, 2, 1].",
+      "code": "import java.util.*;\npublic class Q198 {\n    public static void main(String[] args) {\n        List<Integer> numbers = new ArrayList<>(List.of(3, 1, 2));\n        Collections.sort(numbers, Collections.reverseOrder());\n        System.out.println(numbers);\n    }\n}",
+      "tags": [
+        "Collections.sort",
+        "reverseOrder"
+      ]
+    },
+    {
+      "id": 199,
+      "topic": "other",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "Value: Base",
+        "B": "Value: Derived",
+        "C": "Value: Base->Derived",
+        "D": "Compilation error: toString cannot call super.toString()"
+      },
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "String concatenation with an object implicitly calls its toString(). obj is really a Derived, so the overridden toString() runs, which itself calls super.toString() to build \"Base->Derived\".",
+      "code": "class Base {\n    public String toString() { return \"Base\"; }\n}\nclass Derived extends Base {\n    public String toString() { return super.toString() + \"->Derived\"; }\n}\npublic class Q199 {\n    public static void main(String[] args) {\n        Base obj = new Derived();\n        System.out.println(\"Value: \" + obj);\n    }\n}",
+      "tags": [
+        "toString",
+        "string-concatenation",
+        "super"
+      ]
+    },
+    {
+      "id": 200,
+      "topic": "other",
+      "difficulty": "hard",
+      "type": "single",
+      "question": "What is printed?",
+      "options": {
+        "A": "false then false",
+        "B": "false then true",
+        "C": "A NullPointerException is thrown",
+        "D": "true then true"
+      },
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "Objects.equals safely handles null arguments instead of throwing: it returns false when only one argument is null, and true when both are null.",
+      "code": "import java.util.Objects;\npublic class Q200 {\n    public static void main(String[] args) {\n        String a = null;\n        String b = \"text\";\n        System.out.println(Objects.equals(a, b));\n        System.out.println(Objects.equals(a, null));\n    }\n}",
+      "tags": [
+        "Objects.equals",
+        "null-safety"
+      ]
     }
   ]
 }
